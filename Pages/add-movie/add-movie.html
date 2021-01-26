@@ -4,10 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./add-movie.css">
+    <script src="./add-movie.js"></script>
     <title>Add movie</title>
 </head>
 
 <body>
+
+    <header>*header*</header>
+
+    <div id="title">
+        <p>Add movie</p>
+        <p class="movie-icon"></p>
+
+    </div>
+
+    <form>
+
+        <label for="title">Add title:</label>
+        <input type="text" name="title" placeholder="Movie title">
+        <br>
+
+        <label for="description">Add description:</label>
+        <input multiple type="text" name="description" placeholder="Movie description">
+        <br>
+
+        <label for="actors">Add actors:</label>
+        <input type="text" name="main-actors" placeholder="Main actors">
+        <br>
+
+        <input type="text" name="secondary-actors" placeholder="Secondary actors">
+        <br>
+
+        <label for="duration">Add duration:</label>
+        <input type="time" name="duration">
+        <br>
+
+        <label for="rating">Add rating:</label>
+        <input type="text" name="rating">
+        <br>
+
+        <label for="photo">Add photo:</label>
+        <input type="text" name="photo" placeholder="Photo URL">
+        <br>
+
+        <label for="year">Add year:</label>
+        <select type="radio" name="year">
+            <option value="1">2000</option>
+            <option value="1">2001</option>
+            <option value="1">2002</option>
+            <option value="1">2003</option>
+            <option value="1">2004</option>
+            <option value="1">2005</option>
+            <option value="1">2006</option>
+            <option value="1">2007</option>
+            <option value="1">2008</option>
+            <option value="1">2009</option>
+            <option value="1">2010</option>
+            <option value="1">2011</option>
+            <option value="1">2012</option>
+            <option value="1">2013</option>
+            <option value="1">2014</option>
+            <option value="1">2015</option>
+            <option value="1">2016</option>
+            <option value="1">2017</option>
+            <option value="1">2018</option>
+            <option value="1">2019</option>
+            <option value="1">2020</option>
+            <option value="1">2021</option>
+        </select>
+
+        <br>
+        <label for="genre">Add genre:</label>
+        <input type="checkbox">Romantic</input><br>
+        <input type="checkbox">Comedies</input><br>
+        <input type="checkbox">Action & adventure</input><br>
+        <input type="checkbox">Drama</input><br>
+        <input type="checkbox">Science Fiction</input>
+        </input>
+    </form>
+
+    <button id="done-button">
+        DONE
+    </button>
+
+    <br>
+    <footer>*footer*</footer>
 
 </body>
 
