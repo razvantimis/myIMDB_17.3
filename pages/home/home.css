@@ -1,7 +1,3 @@
-@font-face {
-    font-family: Voltaire;
-    src: url(./Voltaire/Voltaire-Regular.ttf)
-}
 
 * {
     box-sizing: border-box;
@@ -36,7 +32,7 @@ header {
 }
 
 #menuName {
-    font-family: Voltaire;
+    font-family: 'Voltaire', sans-serif;
     position: absolute;
     font-size: 20px;
     left: 12%;
@@ -45,7 +41,7 @@ header {
 }
 
 #home {
-    font-family: Voltaire;
+    font-family: 'Voltaire', sans-serif;
     position: absolute;
     font-size: 20px;
     top: 24%;
@@ -70,7 +66,7 @@ header {
 }
 
 #searchBar {
-    font-family: Voltaire;
+    font-family: 'Voltaire', sans-serif;
     position: absolute;
     border-radius: 8px;
     top: 22%;
@@ -80,18 +76,146 @@ header {
     background-color:rgb(255,222,125);
 }
 
-hr {
+#lineBelowHeader {
     border-width: 7px;
     border: solid rgb(255,222,125);
     position: absolute;
     width: 100%;
-    top:25%;
+    top:92%;
     left:0%;
+}
+
+/* Content */
+
+/* Film part */
+.single-film {
+    top: 8%;
+    float: left;
+    width: 20%;
+    margin: 0%;
+    padding-top: 15%;
+    position: absolute;
+    background-color: #000;
+    background-image:  
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff),        
+        
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff); 
+    background-repeat:no-repeat;
+    background-position: 
+        5% 5%,
+        15% 5%,
+        25% 5%, 
+        35% 5%,
+        45% 5%,
+        55% 5%,
+        65% 5%,
+        75% 5%, 
+        85% 5%,
+        95% 5%,
+            
+        5% 95%,
+        15% 95%,
+        25% 95%, 
+        35% 95%,
+        45% 95%,
+        55% 95%,
+        65% 95%,
+        75% 95%, 
+        85% 95%,
+        95% 95%;
+    background-size:
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+            
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%;
+}
+.single-film .film-frame {
+    margin: 12% 5%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: -webkit-grid;
+    display: -ms-grid;
+    -webkit-grid-columns: 1fr;
+    -webkit-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+#firstFilm {
+    left: 0%;
+}
+
+#secondFilm {
+    left: 20%;
+}
+
+#thirdFilm {
+    left: 40%;
+}
+
+#fourtFilm {
+    left: 60%
+}
+
+#fifthFilm {
+    left: 80%;
+}
+
+#lineBelowFilm {
+    border-width: 7px;
+    border: solid rgb(255,222,125);
+    position: absolute;
+    width: 100%;
+    top: 96%;
+    left: 0%;
 }
 
 /* Footer */
 .text-part {
-    font-family: Voltaire;
+    font-family:'Voltaire', sans-serif;
     font-size: 15px;
     color: rgb(255,222,125);
 }
