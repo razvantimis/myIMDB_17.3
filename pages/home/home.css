@@ -81,13 +81,17 @@ header {
     border: solid rgb(255,222,125);
     position: absolute;
     width: 100%;
-    top:92%;
+    top:-5%;
     left:0%;
 }
 
 /* Content */
-
+main {
+    position: relative;
+    top: 80px;
+}
 /* Film part */
+/* Frame */
 .single-film {
     top: 8%;
     float: left;
@@ -211,6 +215,23 @@ header {
     width: 100%;
     top: 96%;
     left: 0%;
+}
+
+/* Img */
+.film-frame img {
+    height: 145px;
+    width: 250px;
+}
+
+/* detailsPart */
+#detailsPart {
+    position: absolute;
+    top: 35%;
+}
+
+#detailsPart img {
+    width: 600px;
+    height: 300px;
 }
 
 /* Footer */
