@@ -223,15 +223,39 @@ main {
     width: 250px;
 }
 
-/* detailsPart */
-#detailsPart {
+/* Arrows */
+#arrowLeft {
     position: absolute;
-    top: 35%;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:80px;
+    z-index: 1;
 }
 
+#arrowRight {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:80px;
+    z-index: 1;
+    right: 0%;
+}
+/* detailsPart */
+#detailsPart  {
+    position: absolute;
+    font-size: 20px;
+    color:  rgb(255,222,125);
+    top: 200px;
+    max-width: 100%;
+}
+/* #detailsPart div {
+    max-width: 600px;
+} */
 #detailsPart img {
-    width: 600px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
+    float: right;
+    top: 200px
 }
 
 /* Footer */

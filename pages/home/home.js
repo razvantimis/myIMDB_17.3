@@ -13,7 +13,14 @@
 //      - sa implementez butoanele de previous movie/next movie, sa le fac sa dispara cand nu mai e film
 //      - sa adaug functionalitate filmelor, pe click sa afiseze in partea de jos descrierea 
 
+// - sa afisez cele 5 filme din api - done
+// - pe click sa returneze id al movie-ului - done
+// - sa fac functionalitatea pe click in image sa dau display la details for that movie
+// - sa adaug functionalitate pe click butoanelor stanga, dreapta
+
 const baseURL = new URL('https://movies-app-siit.herokuapp.com/movies');
+
+let startIndex = 0;
 
 fetch(baseURL, {
     method: 'GET'
@@ -21,83 +28,133 @@ fetch(baseURL, {
     .then(function (response) {
         return response.json()
     })
+
     .then(function (jsonResponse) {
+        // debugger
         console.log(jsonResponse);
         displayMovies(jsonResponse)
-        //displayMovieDetails(jsonResponse)
+
+        let rightButton = document.getElementById('arrowRight');
+        rightButton.addEventListener('click', function () {
+            // while(startIndex < 6) {
+            hidePreviousPictures()
+            startIndex++;
+            rightButtonFunctionality(jsonResponse)
+            // }
+        })
+
     })
+
+
+// choosing the container where should be added the poster
+let container;
+function chooseContainer(i) {
+    console.log(i)
+    if (i === 0) {
+        container = document.getElementById('firstContainer')
+    } else if (i === 1) {
+        container = document.getElementById('secondContainer')
+    } else if (i === 2) {
+        container = document.getElementById('thirdContainer')
+    } else if (i === 3) {
+        container = document.getElementById('fourthContainer')
+    } else {
+        container = document.getElementById('fifthContainer')
+    }
+    return container;
+
+}
 
 // displayed movie's poster in the film roll
 function displayMovies(result) {
+    // console.log(result.results.length)
 
-    // first poster in the film roll
-    let container1 = document.getElementById('firstContainer');
-    let image1 = document.createElement('img');
-    container1.appendChild(image1);
-
-    image1.src = result.results[0].Poster
-    console.log(result.results[0].Poster);
-
-    // second poster in the film roll
-    let container2 = document.getElementById('secondContainer');
-    let image2 = document.createElement('img');
-    container2.appendChild(image2);
-
-    image2.src = result.results[1].Poster
-
-    // third poster in the film roll
-    let container3 = document.getElementById('thirdContainer');
-    let image3 = document.createElement('img');
-    container3.appendChild(image3);
-
-    image3.src = result.results[2].Poster
-
-    // fourth poster in the film roll
-    let container4 = document.getElementById('fourthContainer');
-    let image4 = document.createElement('img');
-    container4.appendChild(image4);
-
-    image4.src = result.results[3].Poster
-
-    // fifth poster in the film roll
-    let container5 = document.getElementById('fifthContainer');
-    let image5 = document.createElement('img');
-    container5.appendChild(image5);
-
-    image5.src = result.results[4].Poster
+    for (let i = 0; i < result.results.length; i++) {
+        chooseContainer(i);
+        let pictureCard = document.createElement('div');
+        pictureCard.setAttribute('id', 'pictureCard')
+        let image = document.createElement('img');
+        container.appendChild(pictureCard);
+        pictureCard.appendChild(image)
+        image.src = result.results[i].Poster
+        let moviesId = result.results[i]._id
+        image.setAttribute('id', moviesId)
+    }
 }
 
-function displayMoviePoster(selectedMovie) {
+//  for selected movie got details
+function getMovieDetails(id) {
+    let movieUrl = `https://movies-app-siit.herokuapp.com/movies/${id}`
+    fetch(movieUrl, {
+        method: 'GET'
+    }).then(function (response) {
+        return response.json();
+    }).then(function (jsonResponse) {
+        // console.log(jsonResponse)
+        displayMovieDetails(jsonResponse)
+    })
+}
+
+// displayed details for selected movie 
+function displayMovieDetails(result) {
+    // console.log(result.Actors)
+    let title = result.Title
+    let description = result.Plot;
+    let actors = result.Actors
+    let genre = result.Genre;
+    let image = result.Poster
     let container = document.getElementById('detailsPart');
 
-    // let title = document.createElement('h4');
-    // let genre = document.createElement('p')
-    console.log(selectedMovie)
-
-    container.appendChild(selectedMovie);
+    container.innerHTML = `
+    <h3>Title:${title}</h3>
+    <div>${description}</div>
+    <div>Actors:${actors}</div>
+    <div>Genre:${genre}</div>
+    <img src="${image}">`
 }
 
-function displayMovieDetails(result) {
+// displayed by default details for first movie
+function displayDetailsFirstMovie() {
+    let container = document.getElementById('firstContainer');
+    console.log(container.getElementsByTagName('img'))
+    // console.log(container.getElementsByTagName('img')[0].getAttribute('id'))
 
 }
-// return selected poster to find the details about it
-function getSelectedMovie(movie) {
-    let selectedPoster = movie.firstChild.src
-    console.log(selectedPoster)
-    return selectedPoster;
-}
-
 
 let movies = document.querySelectorAll('.film-frame');
-console.log(movies)
+// console.log(movies)
+displayDetailsFirstMovie()
 for (let movie of movies) {
     movie.addEventListener('click', function () {
-        console.log(movie.id)
-        let selectedContainer = document.getElementById(movie.id);
-        let selectedImage = selectedContainer.firstChild
-        console.log(selectedImage)
-        let copySelectedImg = selectedImage.cloneNode()
-        displayMoviePoster(copySelectedImg)
-        getSelectedMovie(movie)
+        console.log(movie)
+        console.log(movie.getElementsByTagName('img'))
+        let selectedMovieId = movie.getElementsByTagName('img')[0].getAttribute('id')
+        console.log(selectedMovieId)
+        getMovieDetails(selectedMovieId)
     })
+}
+
+// displayed next movie in filmroll
+function rightButtonFunctionality(result) {
+    console.log(startIndex)
+    for (let i = startIndex; i < result.results.length; i++) {
+        console.log()
+        chooseContainer(i - startIndex);
+        let pictureCard = document.createElement('div');
+        pictureCard.setAttribute('id', 'pictureCard')
+        let image = document.createElement('img');
+        container.appendChild(pictureCard);
+        pictureCard.appendChild(image)
+        image.src = result.results[i].Poster
+        let moviesId = result.results[i]._id
+        image.setAttribute('id', moviesId)
+    }
+}
+
+// hiding previous pictures in filmroll
+function hidePreviousPictures() {
+    let cards = document.querySelectorAll('#pictureCard')
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].style.display = 'none'
+    }
 }
