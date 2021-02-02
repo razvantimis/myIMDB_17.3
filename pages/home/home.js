@@ -13,14 +13,12 @@
 //      - sa implementez butoanele de previous movie/next movie, sa le fac sa dispara cand nu mai e film
 //      - sa adaug functionalitate filmelor, pe click sa afiseze in partea de jos descrierea 
 
-// - sa afisez cele 5 filme din api - done
-// - pe click sa returneze id al movie-ului - done
-// - sa fac functionalitatea pe click in image sa dau display la details for that movie
-// - sa adaug functionalitate pe click butoanelor stanga, dreapta
+
 
 const baseURL = new URL('https://movies-app-siit.herokuapp.com/movies');
 
-let startIndex = 0;
+let nextIndex = 0;
+let previousIndex = 0;
 
 fetch(baseURL, {
     method: 'GET'
@@ -28,27 +26,57 @@ fetch(baseURL, {
     .then(function (response) {
         return response.json()
     })
-
     .then(function (jsonResponse) {
         // debugger
         console.log(jsonResponse);
         displayMovies(jsonResponse)
 
+        //sa reinitializez indexi dupa un dreapta - stanga consecutiv
         let rightButton = document.getElementById('arrowRight');
         rightButton.addEventListener('click', function () {
-            // while(startIndex < 6) {
-            hidePreviousPictures()
-            startIndex++;
-            rightButtonFunctionality(jsonResponse)
-            // }
+            // hiding the rightButton when movie list is ended
+            if (nextIndex < 5) {
+                hidePreviousPictures()
+                nextIndex++;
+                rightButtonFunctionality(jsonResponse)
+            } else {
+                rightButton.style.display = 'none';
+            }
+            previousIndex = nextIndex
+            document.getElementById('arrowLeft').style.display = 'block';
+
+            if (nextIndex >= 5) {
+                rightButton.style.display = 'none';
+            }
         })
 
+        let leftButton = document.getElementById('arrowLeft');
+        leftButton.style.display = 'block';
+
+        leftButton.addEventListener('click', function () {
+
+            if (previousIndex === 0) {
+                leftButton.style.display = 'none';
+            } else if (previousIndex > 0) {
+                leftButton.style.display = 'block';
+                hidePreviousPictures();
+
+                leftButtonFunctionality(jsonResponse);
+                previousIndex--;
+            }
+            // hiding leftButton when first movie is displayed
+            if (previousIndex === 0) {
+                leftButton.style.display = 'none';
+            }
+        })
     })
 
 
 // choosing the container where should be added the poster
-let container;
+// let container;
 function chooseContainer(i) {
+    let container;
+    // console.log(container)
     console.log(i)
     if (i === 0) {
         container = document.getElementById('firstContainer')
@@ -58,8 +86,10 @@ function chooseContainer(i) {
         container = document.getElementById('thirdContainer')
     } else if (i === 3) {
         container = document.getElementById('fourthContainer')
-    } else {
+    } else if (i === 4) {
         container = document.getElementById('fifthContainer')
+    } else {
+        return
     }
     return container;
 
@@ -67,10 +97,10 @@ function chooseContainer(i) {
 
 // displayed movie's poster in the film roll
 function displayMovies(result) {
-    // console.log(result.results.length)
 
-    for (let i = 0; i < result.results.length; i++) {
-        chooseContainer(i);
+    for (let i = 0; i < 5; i++) {
+        //chooseContainer(i);
+        let container = chooseContainer(i)
         let pictureCard = document.createElement('div');
         pictureCard.setAttribute('id', 'pictureCard')
         let image = document.createElement('img');
@@ -127,28 +157,63 @@ displayDetailsFirstMovie()
 for (let movie of movies) {
     movie.addEventListener('click', function () {
         console.log(movie)
-        console.log(movie.getElementsByTagName('img'))
-        let selectedMovieId = movie.getElementsByTagName('img')[0].getAttribute('id')
+
+        let selectedContainer = movie.getElementsByTagName('img')
+        let lastMovie = selectedContainer[selectedContainer.length - 1]
+        console.log(lastMovie)
+        let selectedMovieId = lastMovie.getAttribute('id')
         console.log(selectedMovieId)
         getMovieDetails(selectedMovieId)
     })
 }
 
 // displayed next movie in filmroll
+// nextIndex e numarul de cate ori da click pe sageata dreapta
+// conditia din for: initial sunt afisate filmele index 0-4, deci cand nu s-a dat click sa afiseze pana cand i < 5 (nextIndex=0)
+// cand se da click nextIndex creste cu 1 asta inseamna ca vrem sa afisam cate un film in plus din lista de 10(result.results.length)
 function rightButtonFunctionality(result) {
-    console.log(startIndex)
-    for (let i = startIndex; i < result.results.length; i++) {
-        console.log()
-        chooseContainer(i - startIndex);
-        let pictureCard = document.createElement('div');
-        pictureCard.setAttribute('id', 'pictureCard')
-        let image = document.createElement('img');
-        container.appendChild(pictureCard);
-        pictureCard.appendChild(image)
-        image.src = result.results[i].Poster
-        let moviesId = result.results[i]._id
-        image.setAttribute('id', moviesId)
+    console.log(nextIndex)
+    for (let i = nextIndex; i < result.results.length - 5 + nextIndex; i++) {
+        let container = chooseContainer(i - nextIndex);
+        setContainerPreviousNextMovies(i, container, result)
     }
+}
+// displayed previous movie in filmroll
+// reduceIndex e pentru a putea accesa ultimul film din cele 10 filme(result.results.length) pe care dorim sa il afisam
+// previousIndex reprezinta numarul de cate ori se poate da click pe sageata din stanga pana sa ajunga la primul film
+function leftButtonFunctionality(result) {
+    console.log(previousIndex)
+    setReduceIndex(previousIndex)
+    for (let i = result.results.length - reduceIndex; i >= previousIndex - 1; i--) {
+        let container = chooseContainer(i - previousIndex + 1);
+        setContainerPreviousNextMovies(i, container, result);
+
+    }
+}
+function setReduceIndex(previousIndex) {
+    if (previousIndex == 1) {
+        reduceIndex = 6;
+    } else if (previousIndex == 2) {
+        reduceIndex = 5;
+    } else if (previousIndex == 3) {
+        reduceIndex = 4;
+    } else if (previousIndex == 4) {
+        reduceIndex = 3;
+    } else {
+        reduceIndex = 2;
+    }
+}
+
+// displayed movies in filmroll when left/right arrows are clicked
+function setContainerPreviousNextMovies(i, container, result) {
+    let pictureCard = document.createElement('div');
+    pictureCard.setAttribute('id', 'pictureCard')
+    let image = document.createElement('img');
+    container.appendChild(pictureCard);
+    pictureCard.appendChild(image)
+    image.src = result.results[i].Poster
+    let moviesId = result.results[i]._id
+    image.setAttribute('id', moviesId)
 }
 
 // hiding previous pictures in filmroll
