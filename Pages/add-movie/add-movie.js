@@ -1,38 +1,97 @@
-//API info
-const baseURL = "...";
+baseUrl = "https://movies-app-siit.herokuapp.com/movies";
+
+const info = [
+    titleInput = document.getElementById("titleInput"),
+    typeInput = document.getElementById("typeInput"),
+    yearInput = document.getElementById("yearInput"),
+    posterInput = document.getElementById("posterInput")
+]
+
+// const info = document.getElementById([
+//     "title",
+//     "type",
+//     "year",
+//     "poster"
+// ]);
+
+// const info = [
+//     titleInput,
+//     typeInput,
+//     yearInput,
+//     posterInput
+// ];
+
+let data = {
+    username: "RazvanTest5",
+    password: "password"
+};
+
+let loginToken;
+
+const addMovie = () => {
+    var data = {
+        Title: titleInput.value,
+        Type: typeInput.value,
+        Year: yearInput.value,
+        Poster: posterInput.value
+    };
+
+    if (data.Title == "") {
+        alert("Enter title!");
+        return;
+    }
 
 
-function getInputsValues(titleInput, yearInput, typeInput, posterInput) {
-    var titleInput = getElementById(titleInput).value;
-    var yearInput = getElementById(yearInput).value;
-    var typeInput = getElementByClass(typeInput).value;
-    var posterInput = getElementById(posterInput).value;
+    if (data.Type == "") {
+        alert("Enter type!");
+        return;
+    }
+
+    if (data.Year == "") {
+        alert("Enter year!");
+        return;
+    }
+
+    if (data.Poster == "") {
+        alert("Enter poster URL!");
+        return;
+    }
+
+
+    fetch(baseUrl, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "X-Auth-Token": loginToken,
+            "Content-Type": "application/json"
+        }
+    })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json);
+        })
+        .catch((err) => console.log(err));
 }
 
+const login = () => {
+    console.log("login started");
+    fetch("https://movies-app-siit.herokuapp.com/auth/login", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log("logged in", json);
+            loginToken = json.accessToken;
+        })
+        .catch((err) => console.log(err));
+};
 
-function addMovie(titleInput, yearInput, typeInput, posterInput) {
-    fetch(baseURL + "/movies", { method: "POST" })
-        .then(
-            function (response) {
-                if (response.status === 200) {
-                    console.log(response.json());
-                    return response.json();
-                } else if (response.status === 403) {
-                    throw new Error("message: 'You need to be authenticated to be able to create a movie'");
-                }
-            }
+var doneButton = document.getElementById("done-button");
+var loginButton = document.getElementById("login-button");
 
-        )
-        .then(
-            function (jsonResp) {
-                console.log(jsonResp)
-            }
-
-        )
-}
-
-// document.getElementById("done-button").addEventListener("click", displayMovie);
-
-// function displayMovie() {
-//     console.log(jsonResp);
-// }
+loginButton.addEventListener("click", login);
+doneButton.addEventListener("click", addMovie);

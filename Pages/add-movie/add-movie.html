@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./add-movie.css">
-    <script src="./add-movie.js"></script>
+
     <title>Add movie</title>
 </head>
 
@@ -25,7 +25,7 @@
         <input type="text" name="title" placeholder="Movie title" id="titleInput">
         <br>
 
-        <label for="description">Add description:</label>
+        <!-- <label for=" description">Add description:</label>
         <input multiple type="text" name="description" placeholder="Movie description">
         <br>
 
@@ -37,18 +37,21 @@
         <br>
 
         <label for="duration">Add duration:</label>
-        <input type="time" name="duration">
+        <input type="text" name="duration" placeholder="Add duration">
         <br>
 
         <label for="rating">Add rating:</label>
         <input type="text" name="rating">
-        <br>
+        <br>-->
 
         <label for="photo">Add photo:</label>
         <input type="text" name="photo" placeholder="Photo URL" id="posterInput">
         <br>
 
-        <label for="year">Add year:</label>
+        <label for="year">Add year</label>
+        <input type="text" name="year" placeholder="Year" id="yearInput">
+
+        <!-- <label for="year">Add year:</label>
         <select type="radio" name="year">
             <option value="1" id="yearInput">2000</option>
             <option value="1" id="yearInput">2001</option>
@@ -72,11 +75,11 @@
             <option value="1" id="yearInput">2019</option>
             <option value="1" id="yearInput">2020</option>
             <option value="1" id="yearInput">2021</option>
-        </select>
+        </select> -->
 
         <br>
         <label for="genre">Add genre:</label>
-        <input type="checkbox" class="typeInput">Romantic</input><br>
+        <input type="checkbox" id="typeInput">Romantic</input><br>
         <input type="checkbox" class="typeInput">Comedies</input><br>
         <input type="checkbox" class="typeInput">Action & adventure</input><br>
         <input type="checkbox" class="typeInput">Drama</input><br>
@@ -84,13 +87,14 @@
         </input>
     </form>
 
-    <button id="done-button">
-        DONE
-    </button>
+    <button id="login-button" type="button">LOGIN</button>
+
+    <button id="done-button" type="button">DONE </button>
+    <br>
 
     <br>
     <footer>*footer*</footer>
-
+    <script src=" ./add-movie.js"></script>
 </body>
 
 </html>
