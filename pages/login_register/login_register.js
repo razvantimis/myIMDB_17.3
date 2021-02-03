@@ -21,8 +21,8 @@ function navigateToHomePage(){
 
  
 function accountData (usernameParam,passwordParam) {
-    var username = document.getElementsByName(usernameParam);
-    var password = document.getElementsByName(passwordParam);
+    var username = document.getElementById(usernameParam);
+    var password = document.getElementById(passwordParam);
     var object = {
         username : username ,
         password : password ,
@@ -43,8 +43,8 @@ loginButton.addEventListener("click", function(){
     var responseData = accountData("username", "password");
    
     let loginData = {
-        username: responseData.username[0].value ,
-        password: responseData.password[0].value ,
+        username: responseData.username.value ,
+        password: responseData.password.value ,
     }
   
     console.log("login data: " , loginData);
@@ -71,8 +71,8 @@ loginButton.addEventListener("click", function(){
 createAccountButton.addEventListener("click", function(){
     var responseData = accountData("createUsername", "createPassword");
     let registerData = {
-        username: responseData.username[0].value ,
-        password: responseData.password[0].value ,
+        username: responseData.username.value ,
+        password: responseData.password.value ,
     }
 
     fetch(baseUrl + registerPath , { method: "POST" , headers:{'Content-Type': 'application/json', }, body:JSON.stringify(registerData)  })
