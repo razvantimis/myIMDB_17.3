@@ -1,0 +1,145 @@
+@font-face {
+  font-family: Voltaire;
+  src: url(./Voltaire/Voltaire-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(58, 58, 58);
+}
+
+/* Header */
+header {
+  background-color: rgb(44, 44, 44);
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+#logoImage {
+  position: relative;
+  left: 1%;
+  height: 80px;
+  width: 50px;
+}
+
+#menuButton {
+  position: absolute;
+  font-size: 25px;
+  left: 10%;
+  top: 24.5%;
+  color: rgb(255, 222, 125);
+}
+
+#menuName {
+  font-family: Voltaire;
+  position: absolute;
+  font-size: 20px;
+  left: 12%;
+  top: 24%;
+  color: rgb(255, 222, 125);
+}
+
+#home {
+  font-family: Voltaire;
+  position: absolute;
+  font-size: 20px;
+  top: 24%;
+  left: 20%;
+  color: rgb(255, 222, 125);
+}
+
+#userIcon {
+  position: absolute;
+  font-size: 30px;
+  top: 22%;
+  right: 3%;
+  color: rgb(255, 222, 125);
+}
+
+#searchIcon {
+  position: absolute;
+  font-size: 27px;
+  top: 22%;
+  right: 35%;
+  color: rgb(255, 222, 125);
+}
+
+#searchBar {
+  font-family: Voltaire;
+  position: absolute;
+  border-radius: 8px;
+  top: 22%;
+  right: 21%;
+  height: 28px;
+  width: 190px;
+  background-color: rgb(255, 222, 125);
+}
+
+hr {
+  border-width: 7px;
+  border: solid rgb(255, 222, 125);
+  position: absolute;
+  width: 100%;
+  top: 25%;
+  left: 0%;
+}
+
+/* Footer */
+.text-part {
+  font-family: Voltaire;
+  font-size: 15px;
+  color: rgb(255, 222, 125);
+}
+
+#firstText {
+  position: absolute;
+  bottom: 9%;
+  left: 5%;
+}
+
+#secondText {
+  position: absolute;
+  bottom: 4%;
+  left: 5%;
+}
+
+#thirdText {
+  position: absolute;
+  bottom: 9%;
+  left: 15%;
+}
+
+#fourthText {
+  position: absolute;
+  bottom: 4%;
+  left: 15%;
+}
+
+.icon-part {
+  color: rgb(255, 222, 125);
+  font-size: 30px;
+  position: absolute;
+  bottom: 6%;
+  right: 15%;
+}
+
+#facebookIcon {
+  padding-left: 10px;
+}
+
+#instagramIcon {
+  padding-left: 10px;
+}
+
+#twiterIcon {
+  padding-left: 10px;
+}
+
+#youtubeIcon {
+  padding-left: 10px;
+}

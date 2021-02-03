@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Voltaire&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>My IMDb</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img id="logoImage" src="https://i.ibb.co/5jkNZ3Z/logo.jpg">
+            <div class="menu">
+                <i id="menuButton" class="fa fa-bars"></i>
+                <div id="menuName">MENU</div>
+            </div>
+            <div id="home">HOME</div>
+            <div class="search">
+                <i id="searchIcon" class="fa fa-search"></i>
+                <input id="searchBar" type="text" placeholder="Search">
+            </div>
+            <div class="user">
+                <i id="userIcon" class="fa fa-user"></i>
+            </div>
+    </header>
+    <hr>
+    <main id="contentPart">
+        <section id="filmPart">
+
+        </section>
+        <section id="detailsPart">
+
+        </section>
+        <p id="errorMessage"></p>
+        <section class="sign-in">
+            <div class="sign-in-container">
+                <p>Sign in</p>
+                <input id="username" name="username" class="sign-in-input" type="text" placeholder="username">
+                <input id="password" name="password" class="sign-in-input" type="text" placeholder="password">
+                <div class="black-line"></div>
+                <button id="loginButton">Login</button>
+                <button>Create New Account</button>
+            </div>
+            <div class="create-new-account-container">
+
+                <p>Create new account</p>
+                <label for="createUsername">Username:</label><br>
+                <input id="createUsername" name="createUsername" type="text" placeholder="">
+                <label for="createPassword">Password:</label><br>
+                <input id="createPassword" name="createPassword" type="text" placeholder="">
+                <button id="createAccountButton">Create Your MyIMDB Account</button>
+            </div>
+
+
+        </section>
+    </main>
+    </main>
+    <footer>
+        <div class="text-part">
+            <div id="firstText">Contact us</div>
+            <div id="secondText">Help center</div>
+            <div id="thirdText">Privacy policy</div>
+            <div id="fourthText">Conditions of use </div>
+        </div>
+        <div class="icon-part">
+            <i id="facebookIcon" class="fa fa-facebook-square"></i>
+            <i id="instagramIcon" class="fa fa-instagram"></i>
+            <i id="twiterIcon" class="fa fa-twitter-square"></i>
+            <i id="youtubeIcon" class="fa fa-youtube-square"></i>
+        </div>
+    </footer>
+
+    <script src="login_register.js"></script>
+</body>
+
+</html>
