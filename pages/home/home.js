@@ -35,7 +35,6 @@ fetch(baseURL, {
         displayMovies(jsonResponse)
         displayDetailsFirstMovie(jsonResponse)
 
-
         //sa reinitializez indexi dupa un dreapta - stanga consecutiv
         let rightButton = document.getElementById('arrowRight');
         rightButton.addEventListener('click', function () {
@@ -373,7 +372,6 @@ function getMovieCategory(genre) {
             categoryNextIndex = categoryPreviousIndex
         })
     })
-
 }
 
 function displayCategoryMovies(result) {

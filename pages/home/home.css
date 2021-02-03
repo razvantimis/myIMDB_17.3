@@ -280,8 +280,8 @@ main {
     width: 400px;
     height: 250px;
     float: right;
-    top: 1px;
-    z-index: 6;
+    top: 0px;
+    
 }
 
 /* Movie Category */
