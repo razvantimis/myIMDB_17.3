@@ -2,24 +2,20 @@ baseUrl = "https://movies-app-siit.herokuapp.com/movies";
 
 const info = [
     titleInput = document.getElementById("titleInput"),
-    typeInput = document.getElementById("typeInput"),
+    //typeInput = document.getElementById("typeInput"),
     yearInput = document.getElementById("yearInput"),
+    ratingInput = document.getElementById("ratingInput"),
+    dateInput = document.getElementById("dateInput"),
+    timeInput = document.getElementById("runtimeInput"),
+    genreInput = document.getElementById("genreInput"),
+    directorInput = document.getElementById("directorInput"),
+    writerInput = document.getElementById("writerInput"),
+    actorsInput = document.getElementById("actorsInput"),
+    plotInput = document.getElementById("plotInput"),
+    languageInput = document.getElementById("languageInput"),
+    countryInput = document.getElementById("countryInput"),
     posterInput = document.getElementById("posterInput")
 ]
-
-// const info = document.getElementById([
-//     "title",
-//     "type",
-//     "year",
-//     "poster"
-// ]);
-
-// const info = [
-//     titleInput,
-//     typeInput,
-//     yearInput,
-//     posterInput
-// ];
 
 let data = {
     username: "RazvanTest5",
@@ -31,31 +27,41 @@ let loginToken;
 const addMovie = () => {
     var data = {
         Title: titleInput.value,
-        Type: typeInput.value,
+        //Type: typeInput.value,
         Year: yearInput.value,
-        Poster: posterInput.value
+        Rating: ratingInput.value,
+        Date: dateInput.value,
+        Time: timeInput.value,
+        Genre: genreInput.value,
+        Director: directorInput.value,
+        Writer: writerInput.value,
+        Actors: actorsInput.value,
+        Plot: plotInput.value,
+        Language: languageInput.value,
+        Country: countryInput.value,
+        Poster: posterInput.value,
     };
 
-    if (data.Title == "") {
-        alert("Enter title!");
-        return;
-    }
+    // if (data.Title == "") {
+    //     alert("Enter title!");
+    //     return;
+    // }
 
 
-    if (data.Type == "") {
-        alert("Enter type!");
-        return;
-    }
+    // if (data.Type == "") {
+    //     alert("Enter type!");
+    //     return;
+    // }
 
-    if (data.Year == "") {
-        alert("Enter year!");
-        return;
-    }
+    // if (data.Year == "") {
+    //     alert("Enter year!");
+    //     return;
+    // }
 
-    if (data.Poster == "") {
-        alert("Enter poster URL!");
-        return;
-    }
+    // if (data.Poster == "") {
+    //     alert("Enter poster URL!");
+    //     return;
+    // }
 
 
     fetch(baseUrl, {
@@ -90,8 +96,15 @@ const login = () => {
         .catch((err) => console.log(err));
 };
 
+// const redirectLoginPage = () => {
+//     console.log("redirect on login page");
+//     //window.location.href = "../Pages/login_register/login_register.html";
+// }
+
 var doneButton = document.getElementById("done-button");
 var loginButton = document.getElementById("login-button");
 
+
+//loginButton.addEventListener("click", redirectLoginPage);
 loginButton.addEventListener("click", login);
 doneButton.addEventListener("click", addMovie);

@@ -2,6 +2,10 @@ body{
     background-color: #6B6868;
 }
 
+#title{
+    color: #FFDE7D;
+}
+
 label {
     color:#FFDE7D;
     
@@ -11,21 +15,5 @@ input{
     background-color: #FFDE7D;
     border-style: none;
     border-radius: 20px;
-
-}
-
-#title {
-color: #FFDE7D;
-}
-
-#type {
-    color: #FFDE7D;   
-}
-
-#year{
-    color: #FFDE7D;
-}
-
-#poster{
-    color: #FFDE7D;
+     margin: 3px;
 }
