@@ -153,6 +153,7 @@ header {
   padding: 42px;
   text-align: center;
 }
+
 .form p {
   display: flex;
   font-family: "Voltaire", sans-serif;
@@ -160,6 +161,7 @@ header {
   font-size: 36px;
   margin-bottom: 5px;
 }
+
 .form input {
   color: black;
   font-family: "Voltaire", sans-serif;
@@ -207,7 +209,7 @@ header {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
- 
+
 }
 
 .sign-in p {
@@ -260,13 +262,14 @@ a:-webkit-any-link {
   padding-top: 5%;
   padding-bottom: 10%;
   align-items: center;
-  
+
 }
 
 .create-new-account-container p {
   color: black;
   align-self: inherit;
 }
+
 .create-new-account-container input {
   width: 413px;
   height: 53.16px;
@@ -297,19 +300,19 @@ a:-webkit-any-link {
   position: absolute;
   top: 117px;
   text-align: center;
-  font-size:30px;
-  color:red;
+  font-size: 30px;
+  color: red;
   width: 100%;
 
 }
 
-.sign-in{
-  display:flex;
+.sign-in {
+  display: flex;
   height: 100vh;
   width: 100%;
   align-items: center;
   padding-top: 10%;
   padding-bottom: 200px;
   justify-content: space-evenly;
-  
+
 }
