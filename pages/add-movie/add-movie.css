@@ -1,0 +1,19 @@
+body{
+    background-color: #6B6868;
+}
+
+#title{
+    color: #FFDE7D;
+}
+
+label {
+    color:#FFDE7D;
+    
+}
+
+input{
+    background-color: #FFDE7D;
+    border-style: none;
+    border-radius: 20px;
+     margin: 3px;
+}
