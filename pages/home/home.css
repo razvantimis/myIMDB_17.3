@@ -271,14 +271,17 @@ main {
     font-size: 20px;
     color:  rgb(255,222,125);
     top: 200px;
-    max-width: 100%;
+    width: 100%;
+    height: 270px;
+   
 }
 
 #detailsPart img {
     width: 400px;
     height: 250px;
     float: right;
-    top: 200px
+    top: 1px;
+    z-index: 6;
 }
 
 /* Movie Category */
@@ -386,25 +389,25 @@ main {
 
 #firstText {
     position: absolute;
-    bottom:9%;
+    bottom:4%;
     left:5%;
 }
 
 #secondText {
     position: absolute;
-    bottom: 4%;
+    bottom: 0%;
     left: 5%;
 }
 
 #thirdText {
     position: absolute;
-    bottom: 9%;
+    bottom: 4%;
     left: 15%;
 }
 
 #fourthText {
     position: absolute;
-    bottom: 4%;
+    bottom: 0%;
     left: 15%;
 }
 
@@ -412,7 +415,7 @@ main {
     color: rgb(255,222,125);
     font-size: 30px;
     position: absolute;
-    bottom: 6%;
+    bottom: 2%;
     right: 15%;
 }
 

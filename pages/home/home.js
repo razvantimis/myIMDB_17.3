@@ -33,6 +33,8 @@ fetch(baseURL, {
         // debugger
         console.log(jsonResponse);
         displayMovies(jsonResponse)
+        displayDetailsFirstMovie(jsonResponse)
+
 
         //sa reinitializez indexi dupa un dreapta - stanga consecutiv
         let rightButton = document.getElementById('arrowRight');
@@ -147,24 +149,21 @@ function displayMovieDetails(result) {
     let container = document.getElementById('detailsPart');
 
     container.innerHTML = `
-    <h3>Title:${title}</h3>
+    <h3>Title: ${title}</h3>
     <div>${description}</div>
-    <div>Actors:${actors}</div>
-    <div>Genre:${genre}</div>
+    <div>Actors: ${actors}</div>
+    <div>Genre: ${genre}</div>
     <img src="${image}">`
 }
 
 // displayed by default details for first movie
-function displayDetailsFirstMovie() {
-    let container = document.getElementById('firstContainer');
-    console.log(container.getElementsByTagName('img'))
-    // console.log(container.getElementsByTagName('img')[0].getAttribute('id'))
-
+function displayDetailsFirstMovie(result) {
+    let firstMovieId = result.results[0]._id;
+    console.log(firstMovieId)
+    getMovieDetails(firstMovieId)
 }
 
 let movies = document.querySelectorAll('.film-frame');
-// console.log(movies)
-displayDetailsFirstMovie()
 for (let movie of movies) {
     movie.addEventListener('click', function () {
         console.log(movie)
@@ -236,6 +235,8 @@ function hidePreviousPictures() {
     }
 }
 
+// HEADER FUNCTIONALITY
+
 displayMenu()
 // added functionality to menu button
 function displayMenu() {
@@ -248,7 +249,7 @@ function displayMenu() {
         displayAnimationMovies();
         displaySciFiMovies();
         displayFamilyMovies();
-        
+
     })
 }
 
@@ -266,7 +267,7 @@ function displayActionMovies() {
 
 function displayDramaMovies() {
     let dramaButton = document.getElementById('dramaMovies');
-    dramaButton.addEventListener('click', function() {
+    dramaButton.addEventListener('click', function () {
 
         getMovieCategory('drama')
         hideShow()
@@ -274,12 +275,12 @@ function displayDramaMovies() {
         let title = document.getElementById('moviesCategoryTitle');
         title.innerText = 'Drama'
     })
-    
+
 }
 
 function displayAnimationMovies() {
     let animationButton = document.getElementById('animationMovies');
-    animationButton.addEventListener('click', function() {
+    animationButton.addEventListener('click', function () {
 
         getMovieCategory('animation')
         hideShow()
@@ -291,7 +292,7 @@ function displayAnimationMovies() {
 
 function displaySciFiMovies() {
     let sciFiButton = document.getElementById('sciFiMovies');
-    sciFiButton.addEventListener('click', function() {
+    sciFiButton.addEventListener('click', function () {
 
         getMovieCategory('sci-fi')
         hideShow()
@@ -303,7 +304,7 @@ function displaySciFiMovies() {
 
 function displayFamilyMovies() {
     let familyButton = document.getElementById('familyMovies');
-    familyButton.addEventListener('click', function() {
+    familyButton.addEventListener('click', function () {
 
         getMovieCategory('family');
         hideShow()
@@ -482,3 +483,35 @@ function hidePreviousCategoryPictures() {
         details[i].style.display = 'none'
     }
 }
+
+displayHome()
+function displayHome() {
+    let homeButton = document.getElementById('home');
+    homeButton.addEventListener('click', () => {
+        window.location.href = '/Pages/home/home.html';
+    })
+}
+
+// hiding menuContainer when the user clicks outside of the container
+hideMenuContainer()
+function hideMenuContainer() {
+    document.onclick = function (event) {
+        let menuIcon = document.getElementById('menuIcon');
+        if (event.target !== menuIcon) {
+            menuContainer.style.display = 'none';
+        }
+    }
+}
+
+setPointer()
+function setPointer() {
+    document.getElementById('filmPart').style.cursor = 'pointer';
+    document.getElementById('menuIcon').style.cursor = 'pointer';
+    document.getElementById('categoriesMenuContainer').style.cursor = 'pointer';
+    document.getElementById('home').style.cursor = 'pointer';
+    document.getElementById('detailsPart').style.cursor = 'pointer';
+    document.getElementById('categoryArrowLeft').style.cursor = 'pointer';
+    document.getElementById('categoryArrowRight').style.cursor = 'pointer';
+    document.getElementById('movieContainers').style.cursor = 'pointer';
+}
+
