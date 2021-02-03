@@ -8,11 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Voltaire&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-    <title>Login/Register</title>
-=======
     <title>My IMDb</title>
->>>>>>> main
 </head>
 
 <body>
@@ -40,25 +36,24 @@
         <section id="detailsPart">
 
         </section>
-
+        <p id="errorMessage"></p>
         <section class="sign-in">
             <div class="sign-in-container">
                 <p>Sign in</p>
-                <input class="sign-in-input" type="text" placeholder="username">
-                <input class="sign-in-input" type="text" placeholder="password">
+                <input id="username" name="username" class="sign-in-input" type="text" placeholder="username">
+                <input id="password" name="password" class="sign-in-input" type="text" placeholder="password">
                 <div class="black-line"></div>
-                <button><a href="https://upload.wikimedia.org/wikipedia/commons/7/71/Irina_Loghin.jpg">Irina
-                        Login</a></button>
+                <button id="loginButton">Login</button>
                 <button>Create New Account</button>
             </div>
             <div class="create-new-account-container">
 
                 <p>Create new account</p>
-                <label for="username">Username:</label><br>
-                <input type="text" placeholder="">
-                <label for="password">Password:</label><br>
-                <input type="text" placeholder="">
-                <button>Create Your MyIMDB Account</button>
+                <label for="createUsername">Username:</label><br>
+                <input id="createUsername" name="createUsername" type="text" placeholder="">
+                <label for="createPassword">Password:</label><br>
+                <input id="createPassword" name="createPassword" type="text" placeholder="">
+                <button id="createAccountButton">Create Your MyIMDB Account</button>
             </div>
 
 
@@ -80,7 +75,7 @@
         </div>
     </footer>
 
-    <script src="home.js"></script>
+    <script src="login_register.js"></script>
 </body>
 
 </html>
