@@ -23,12 +23,36 @@ header {
     width: 50px;
 }
 
-#menuButton {
+#menuIcon {
     position: absolute;
     font-size: 25px;
     left: 10%;
     top: 24.5%;
     color: rgb(255,222,125);
+}
+
+#menuContainer {
+    font-family: 'Voltaire', sans-serif;
+    position:absolute;
+    width: 150px;
+    height: 150px;
+    background-color:rgb(44,44,44);
+    top: 55%;
+    left: 8%;
+    z-index: 4;
+    display: none;
+    color:rgb(255,222,125) ;
+}
+
+#titleMenuContainer {
+    position:absolute;
+    left: 10%;
+}
+
+#categoriesMenuContainer {
+    position: absolute;
+    left: 20%;
+    top: 20%;
 }
 
 #menuName {
@@ -223,7 +247,7 @@ main {
     width: 250px;
 }
 
-/* Arrows */
+/* FilmRoll Arrows */
 #arrowLeft {
     position: absolute;
     font-size: 40px;
@@ -242,20 +266,115 @@ main {
 }
 /* detailsPart */
 #detailsPart  {
+    font-family: 'Voltaire', sans-serif;
     position: absolute;
     font-size: 20px;
     color:  rgb(255,222,125);
     top: 200px;
     max-width: 100%;
 }
-/* #detailsPart div {
-    max-width: 600px;
-} */
+
 #detailsPart img {
     width: 400px;
     height: 250px;
     float: right;
     top: 200px
+}
+
+/* Movie Category */
+#moviesCategory {
+    display: none;
+}
+
+.movie-container {
+    width: 150px;
+    height: 190px;
+    background-color:rgb(255,222,125); 
+    position:absolute;
+}
+
+#movieContainer1 {
+    top:270px;
+    left: 30px;
+}
+
+#movieContainer2 {
+    top: 270px;
+    left: 195px;
+}
+
+#movieContainer3 {
+    top: 270px;
+    left:360px;
+}
+
+#movieContainer4 {
+    top: 270px;
+    left:525px;
+}
+
+#movieContainer5 {
+    top: 270px;
+    left:690px;
+}
+
+#movieContainer6 {
+    top: 270px;
+    left:855px;
+}
+
+#movieContainer7 {
+    top: 270px;
+    left:1020px;
+}
+
+#movieContainer8 {
+    top: 270px;
+    left:1185px;
+}
+
+#moviesCategoryTitle {
+    position: absolute;
+    font-size: 30px;
+    top: 220px;
+    left: 40px;
+    color:rgb(255,222,125);
+}
+
+.movie-picture img {
+    width: 120px;
+    height: 130px;
+    position:absolute;
+    top: 10px;
+    left:15px;
+}
+
+.movie-details {
+    font-family: 'Voltaire', sans-serif;
+    position:absolute;
+    top: 75%;
+    left: 9%;
+    width: 140px;
+    height: 50px;
+    font-size: 12px;
+}
+
+#categoryArrowLeft {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:325px;
+    left: 0px;
+    z-index: 5;
+}
+
+#categoryArrowRight {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:325px;
+    right: 0px;
+    z-index: 5;
 }
 
 /* Footer */

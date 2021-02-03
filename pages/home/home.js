@@ -20,6 +20,9 @@ const baseURL = new URL('https://movies-app-siit.herokuapp.com/movies');
 let nextIndex = 0;
 let previousIndex = 0;
 
+let categoryNextIndex = 0;
+let categoryPreviousIndex = 0;
+
 fetch(baseURL, {
     method: 'GET'
 })
@@ -37,14 +40,18 @@ fetch(baseURL, {
             // hiding the rightButton when movie list is ended
             if (nextIndex < 5) {
                 hidePreviousPictures()
+
                 nextIndex++;
                 rightButtonFunctionality(jsonResponse)
             } else {
                 rightButton.style.display = 'none';
             }
             previousIndex = nextIndex
+
+            // if leftArrow is clicked before rightArrow, this display it back when rightArrow is clicked
             document.getElementById('arrowLeft').style.display = 'block';
 
+            // hiding rightArrow when the last movie is displayed before click 
             if (nextIndex >= 5) {
                 rightButton.style.display = 'none';
             }
@@ -64,11 +71,18 @@ fetch(baseURL, {
                 leftButtonFunctionality(jsonResponse);
                 previousIndex--;
             }
-            // hiding leftButton when first movie is displayed
+
+            // displayed rightArrow(if is hidden) when leftArrow is clicked
+            document.getElementById('arrowRight').style.display = 'block';
+
+            // hiding leftButton when first movie is displayed before click
             if (previousIndex === 0) {
                 leftButton.style.display = 'none';
             }
+            // initialized nextIndex 
+            nextIndex = previousIndex
         })
+
     })
 
 
@@ -88,8 +102,6 @@ function chooseContainer(i) {
         container = document.getElementById('fourthContainer')
     } else if (i === 4) {
         container = document.getElementById('fifthContainer')
-    } else {
-        return
     }
     return container;
 
@@ -99,10 +111,9 @@ function chooseContainer(i) {
 function displayMovies(result) {
 
     for (let i = 0; i < 5; i++) {
-        //chooseContainer(i);
         let container = chooseContainer(i)
         let pictureCard = document.createElement('div');
-        pictureCard.setAttribute('id', 'pictureCard')
+        pictureCard.setAttribute('class', 'picture-card')
         let image = document.createElement('img');
         container.appendChild(pictureCard);
         pictureCard.appendChild(image)
@@ -207,7 +218,7 @@ function setReduceIndex(previousIndex) {
 // displayed movies in filmroll when left/right arrows are clicked
 function setContainerPreviousNextMovies(i, container, result) {
     let pictureCard = document.createElement('div');
-    pictureCard.setAttribute('id', 'pictureCard')
+    pictureCard.setAttribute('class', 'picture-card')
     let image = document.createElement('img');
     container.appendChild(pictureCard);
     pictureCard.appendChild(image)
@@ -218,8 +229,256 @@ function setContainerPreviousNextMovies(i, container, result) {
 
 // hiding previous pictures in filmroll
 function hidePreviousPictures() {
-    let cards = document.querySelectorAll('#pictureCard')
+    let cards = document.querySelectorAll('.picture-card')
+    console.log(cards)
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.display = 'none'
+    }
+}
+
+displayMenu()
+// added functionality to menu button
+function displayMenu() {
+    let menuButton = document.getElementById('menuIcon');
+    let menuContainer = document.getElementById('menuContainer');
+    menuButton.addEventListener('click', function () {
+        menuContainer.style.display = 'block';
+        displayActionMovies();
+        displayDramaMovies();
+        displayAnimationMovies();
+        displaySciFiMovies();
+        displayFamilyMovies();
+        
+    })
+}
+
+function displayActionMovies() {
+    let actionButton = document.getElementById('actionMovies');
+    actionButton.addEventListener('click', function () {
+
+        getMovieCategory('action')
+        hideShow()
+
+        let title = document.getElementById('moviesCategoryTitle');
+        title.innerText = 'Action'
+    })
+}
+
+function displayDramaMovies() {
+    let dramaButton = document.getElementById('dramaMovies');
+    dramaButton.addEventListener('click', function() {
+
+        getMovieCategory('drama')
+        hideShow()
+
+        let title = document.getElementById('moviesCategoryTitle');
+        title.innerText = 'Drama'
+    })
+    
+}
+
+function displayAnimationMovies() {
+    let animationButton = document.getElementById('animationMovies');
+    animationButton.addEventListener('click', function() {
+
+        getMovieCategory('animation')
+        hideShow()
+
+        let title = document.getElementById('moviesCategoryTitle');
+        title.innerText = 'Animation'
+    })
+}
+
+function displaySciFiMovies() {
+    let sciFiButton = document.getElementById('sciFiMovies');
+    sciFiButton.addEventListener('click', function() {
+
+        getMovieCategory('sci-fi')
+        hideShow()
+
+        let title = document.getElementById('moviesCategoryTitle');
+        title.innerText = 'Sci-Fi'
+    })
+}
+
+function displayFamilyMovies() {
+    let familyButton = document.getElementById('familyMovies');
+    familyButton.addEventListener('click', function() {
+
+        getMovieCategory('family');
+        hideShow()
+
+        let title = document.getElementById('moviesCategoryTitle');
+        title.innerText = 'Family'
+    })
+}
+
+// hiding/ showing what is necessary when moviesCategory is accesed
+function hideShow() {
+    document.getElementById('detailsPart').style.display = 'none';
+    document.getElementById('moviesCategory').style.display = 'block';
+    document.getElementById('menuContainer').style.display = 'none';
+}
+
+function getMovieCategory(genre) {
+    const moviesCategoryUrl = `https://movies-app-siit.herokuapp.com/movies?Genre=${genre}`
+
+    fetch(moviesCategoryUrl, {
+        method: 'GET'
+    }).then(function (response) {
+        return response.json();
+    }).then(function (jsonResponse) {
+        console.log(jsonResponse)
+        displayCategoryMovies(jsonResponse);
+
+        let categoryRightButton = document.getElementById('categoryArrowRight');
+        categoryRightButton.addEventListener('click', function () {
+            if (categoryNextIndex < 2) {
+                hidePreviousCategoryPictures();
+                categoryNextIndex++;
+                categoryRightButtonFunctionality(jsonResponse)
+            } else {
+                categoryRightButton.style.display = 'none'
+            }
+            // if leftArrow is clicked before rightArrow, this display it back when rightArrow is clicked
+            document.getElementById('categoryArrowLeft').style.display = 'block';
+
+            categoryPreviousIndex = categoryNextIndex;
+            // hiding rightArrow when the last movie is displayed before click 
+            if (categoryNextIndex >= 2) {
+                categoryRightButton.style.display = 'none'
+            }
+        })
+
+        let categoryLeftButton = document.getElementById('categoryArrowLeft');
+        categoryLeftButton.addEventListener('click', function () {
+            if (categoryPreviousIndex === 0) {
+                categoryLeftButton.style.display = 'none';
+            } else {
+                hidePreviousCategoryPictures()
+                categoryLeftButtonFunctionality(jsonResponse)
+                categoryPreviousIndex--;
+            }
+
+            // displayed rightArrow(if is hidden) when leftArrow is clicked
+            document.getElementById('categoryArrowRight').style.display = 'block';
+
+            // hiding leftArrow when the first movie is displayed before click
+            if (categoryPreviousIndex === 0) {
+                categoryLeftButton.style.display = 'none';
+            }
+
+            // initialize categoryNextIndex
+            categoryNextIndex = categoryPreviousIndex
+        })
+    })
+
+}
+
+function displayCategoryMovies(result) {
+    for (let i = 0; i < result.results.length - 2; i++) {
+        let container = chooseCategoryContainer(i)
+        console.log(container)
+        let pictureCard = document.createElement('div');
+        pictureCard.setAttribute('class', 'movie-picture')
+        let image = document.createElement('img');
+        pictureCard.appendChild(image);
+
+        let details = document.createElement('div');
+        details.setAttribute('class', 'movie-details')
+        container.append(pictureCard, details)
+
+        image.src = result.results[i].Poster;
+        let rating = result.results[i].imdbRating;
+        let title = result.results[i].Title
+
+        details.innerHTML = `
+            <i class="fa fa-star"></i>
+            <span>${rating}</span>
+            <div>${title}</div>`
+    }
+}
+
+function chooseCategoryContainer(i) {
+    let container;
+    console.log(i)
+    if (i === 0) {
+        container = document.getElementById('movieContainer1');
+    } else if (i === 1) {
+        container = document.getElementById('movieContainer2');
+    } else if (i === 2) {
+        container = document.getElementById('movieContainer3');
+    } else if (i === 3) {
+        container = document.getElementById('movieContainer4');
+    } else if (i === 4) {
+        container = document.getElementById('movieContainer5');
+    } else if (i === 5) {
+        container = document.getElementById('movieContainer6');
+    } else if (i === 6) {
+        container = document.getElementById('movieContainer7');
+    } else if (i === 7) {
+        container = document.getElementById('movieContainer8');
+    }
+    return container;
+}
+
+function categoryRightButtonFunctionality(result) {
+    console.log(categoryNextIndex)
+    for (let i = categoryNextIndex; i < result.results.length - 2 + categoryNextIndex; i++) {
+        let container = chooseCategoryContainer(i - categoryNextIndex);
+        setContainerCategoryPreviousNextMovies(i, container, result)
+    }
+}
+
+function categoryLeftButtonFunctionality(result) {
+    console.log(categoryPreviousIndex)
+    let reduceIndex = categorySetReduceIndex(categoryPreviousIndex);
+    for (let i = result.results.length - reduceIndex; i >= categoryPreviousIndex - 1; i--) {
+        let container = chooseCategoryContainer(i - categoryPreviousIndex + 1);
+        setContainerCategoryPreviousNextMovies(i, container, result);
+
+    }
+}
+
+function categorySetReduceIndex(categoryPreviousIndex) {
+    let reduceIndex;
+    if (categoryPreviousIndex == 1) {
+        reduceIndex = 3;
+    } else if (categoryPreviousIndex == 2) {
+        reduceIndex = 2;
+    }
+    return reduceIndex;
+}
+
+function setContainerCategoryPreviousNextMovies(i, container, result) {
+    let pictureCard = document.createElement('div');
+    pictureCard.setAttribute('class', 'movie-picture')
+    let image = document.createElement('img');
+    pictureCard.appendChild(image);
+
+    let details = document.createElement('div');
+    details.setAttribute('class', 'movie-details')
+    container.append(pictureCard, details)
+
+    image.src = result.results[i].Poster;
+    let rating = result.results[i].imdbRating;
+    let title = result.results[i].Title
+
+    details.innerHTML = `
+            <i class="fa fa-star"></i>
+            <span>${rating}</span>
+            <div>${title}</div>`
+}
+
+function hidePreviousCategoryPictures() {
+    let pictureCards = document.querySelectorAll('.movie-picture')
+
+    for (let i = 0; i < pictureCards.length; i++) {
+        pictureCards[i].style.display = 'none'
+    }
+
+    let details = document.querySelectorAll('.movie-details');
+    for (let i = 0; i < details.length; i++) {
+        details[i].style.display = 'none'
     }
 }
