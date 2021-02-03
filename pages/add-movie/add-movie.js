@@ -1,21 +1,19 @@
 baseUrl = "https://movies-app-siit.herokuapp.com/movies";
 
-const info = [
-    titleInput = document.getElementById("titleInput"),
-    //typeInput = document.getElementById("typeInput"),
-    yearInput = document.getElementById("yearInput"),
-    ratingInput = document.getElementById("ratingInput"),
-    dateInput = document.getElementById("dateInput"),
-    timeInput = document.getElementById("runtimeInput"),
-    genreInput = document.getElementById("genreInput"),
-    directorInput = document.getElementById("directorInput"),
-    writerInput = document.getElementById("writerInput"),
-    actorsInput = document.getElementById("actorsInput"),
-    plotInput = document.getElementById("plotInput"),
-    languageInput = document.getElementById("languageInput"),
-    countryInput = document.getElementById("countryInput"),
-    posterInput = document.getElementById("posterInput")
-]
+
+let yearInput = document.getElementById("yearInput");
+let ratingInput = document.getElementById("ratingInput");
+let dateInput = document.getElementById("dateInput");
+let timeInput = document.getElementById("runtimeInput");
+let genreInput = document.getElementById("genreInput");
+let directorInput = document.getElementById("directorInput");
+let writerInput = document.getElementById("writerInput");
+let actorsInput = document.getElementById("actorsInput");
+let plotInput = document.getElementById("plotInput");
+let languageInput = document.getElementById("languageInput");
+let countryInput = document.getElementById("countryInput");
+let posterInput = document.getElementById("posterInput");
+
 
 let data = {
     username: "RazvanTest5",
@@ -27,7 +25,6 @@ let loginToken;
 const addMovie = () => {
     var data = {
         Title: titleInput.value,
-        //Type: typeInput.value,
         Year: yearInput.value,
         Rating: ratingInput.value,
         Date: dateInput.value,
@@ -41,28 +38,6 @@ const addMovie = () => {
         Country: countryInput.value,
         Poster: posterInput.value,
     };
-
-    // if (data.Title == "") {
-    //     alert("Enter title!");
-    //     return;
-    // }
-
-
-    // if (data.Type == "") {
-    //     alert("Enter type!");
-    //     return;
-    // }
-
-    // if (data.Year == "") {
-    //     alert("Enter year!");
-    //     return;
-    // }
-
-    // if (data.Poster == "") {
-    //     alert("Enter poster URL!");
-    //     return;
-    // }
-
 
     fetch(baseUrl, {
         method: "POST",
@@ -79,32 +54,6 @@ const addMovie = () => {
         .catch((err) => console.log(err));
 }
 
-const login = () => {
-    console.log("login started");
-    fetch("https://movies-app-siit.herokuapp.com/auth/login", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log("logged in", json);
-            loginToken = json.accessToken;
-        })
-        .catch((err) => console.log(err));
-};
-
-// const redirectLoginPage = () => {
-//     console.log("redirect on login page");
-//     //window.location.href = "../Pages/login_register/login_register.html";
-// }
 
 var doneButton = document.getElementById("done-button");
-var loginButton = document.getElementById("login-button");
-
-
-//loginButton.addEventListener("click", redirectLoginPage);
-loginButton.addEventListener("click", login);
 doneButton.addEventListener("click", addMovie);
