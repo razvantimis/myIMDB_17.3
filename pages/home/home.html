@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Voltaire&display=swap" rel="stylesheet">
+    <title>My IMDb</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img id="logoImage" src="https://i.ibb.co/5jkNZ3Z/logo.jpg">
+        </div>
+        <div class="menu">
+            <div id="menuButton">
+                <i id="menuIcon" class="fa fa-bars"></i>
+                <div id="menuContainer">
+                    <div id="titleMenuContainer">MOVIES</div>
+                    <div id="categoriesMenuContainer">
+                        <div id="actionMovies">Action</div>
+                        <div id="dramaMovies">Drama</div>
+                        <div id="animationMovies">Animation</div>
+                        <div id="sciFiMovies">Sci-Fi</div>
+                        <div id="familyMovies">Family</div>
+                    </div>
+                </div>
+            </div>
+            <div id="menuName">MENU</div>
+        </div>
+        <div id="home">HOME</div>
+        <div class="search">
+            <i id="searchIcon" class="fa fa-search"></i>
+            <input id="searchBar" type="text" placeholder="Search">
+        </div>
+        <div class="user">
+            <i id="userIcon" class="fa fa-user"></i>
+        </div>
+        
+    </header>
+
+    <!-- Content -->
+    <main id="contentPart">
+        <section id="filmPart" class="film-part">
+            <div id="arrowLeft">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div id="firstFilm" class="single-film">
+                <hr id="lineBelowHeader">
+                <div id="firstContainer" class="film-frame"></div>
+                <hr id="lineBelowFilm">
+            </div>
+            <div id="secondFilm" class="single-film">
+                <hr id="lineBelowHeader">
+                <div id="secondContainer" class="film-frame"></div>
+                <hr id="lineBelowFilm">
+            </div>
+            <div id="thirdFilm" class="single-film">
+                <hr id="lineBelowHeader">
+                <div id="thirdContainer" class="film-frame"></div>
+                <hr id="lineBelowFilm">
+            </div>
+            <div id="fourtFilm" class="single-film">
+                <hr id="lineBelowHeader">
+                <div id="fourthContainer" class="film-frame"></div>
+                <hr id="lineBelowFilm">
+            </div>
+            <div id="fifthFilm" class="single-film">
+                <hr id="lineBelowHeader">
+                <div id="fifthContainer" class="film-frame"></div>
+                <hr id="lineBelowFilm">
+            </div>
+            <div id="arrowRight">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </section>
+
+        <section id="detailsPart">
+
+        </section>
+        <section id="moviesCategory">
+            <div id="moviesCategoryTitle"></div>
+            <div id="categoryArrowLeft">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div id="movieContainers">
+                <div class="movie-container" id="movieContainer1"></div>
+                <div class="movie-container" id="movieContainer2"></div>
+                <div class="movie-container" id="movieContainer3"></div>
+                <div class="movie-container" id="movieContainer4"></div>
+                <div class="movie-container" id="movieContainer5"></div>
+                <div class="movie-container" id="movieContainer6"></div>
+                <div class="movie-container" id="movieContainer7"></div>
+                <div class="movie-container" id="movieContainer8"></div>
+            </div>
+            <div id="categoryArrowRight">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="text-part">
+            <div id="firstText">Contact us</div>
+            <div id="secondText">Help center</div>
+            <div id="thirdText">Privacy policy</div>
+            <div id="fourthText">Conditions of use </div>
+        </div>
+        <div class="icon-part">
+            <i id="facebookIcon" class="fa fa-facebook-square"></i>
+            <i id="instagramIcon" class="fa fa-instagram"></i>
+            <i id="twiterIcon" class="fa fa-twitter-square"></i>
+            <i id="youtubeIcon" class="fa fa-youtube-square"></i>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+
+</html>

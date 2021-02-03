@@ -1,0 +1,436 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(58,58,58);
+}
+
+/* Header */
+header {
+    background-color:rgb(44,44,44);
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left:0%;
+}
+
+#logoImage {
+    position: relative;
+    left: 1%;
+    height: 80px;
+    width: 50px;
+}
+
+#menuIcon {
+    position: absolute;
+    font-size: 25px;
+    left: 10%;
+    top: 24.5%;
+    color: rgb(255,222,125);
+}
+
+#menuContainer {
+    font-family: 'Voltaire', sans-serif;
+    position:absolute;
+    width: 150px;
+    height: 150px;
+    background-color:rgb(44,44,44);
+    top: 55%;
+    left: 8%;
+    z-index: 4;
+    display: none;
+    color:rgb(255,222,125) ;
+}
+
+#titleMenuContainer {
+    position:absolute;
+    left: 10%;
+}
+
+#categoriesMenuContainer {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+#menuName {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    left: 12%;
+    top: 24%;
+    color: rgb(255,222,125);
+}
+
+#home {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    top: 24%;
+    left: 20%;
+    color: rgb(255,222,125);
+}
+
+#userIcon {
+    position: absolute;
+    font-size: 30px;
+    top: 22%;
+    right: 3%;
+    color: rgb(255,222,125);
+}
+
+#searchIcon {
+    position: absolute;
+    font-size: 27px;
+    top: 22%;
+    right: 35%;
+    color: rgb(255,222,125);
+}
+
+#searchBar {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    border-radius: 8px;
+    top: 22%;
+    right: 21%;
+    height: 28px;
+    width: 190px;
+    background-color:rgb(255,222,125);
+}
+
+#lineBelowHeader {
+    border-width: 7px;
+    border: solid rgb(255,222,125);
+    position: absolute;
+    width: 100%;
+    top:-5%;
+    left:0%;
+}
+
+/* Content */
+main {
+    position: relative;
+    top: 80px;
+}
+/* Film part */
+/* Frame */
+.single-film {
+    top: 8%;
+    float: left;
+    width: 20%;
+    margin: 0%;
+    padding-top: 15%;
+    position: absolute;
+    background-color: #000;
+    background-image:  
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff),        
+        
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff), 
+        linear-gradient(to right, #fff, #fff); 
+    background-repeat:no-repeat;
+    background-position: 
+        5% 5%,
+        15% 5%,
+        25% 5%, 
+        35% 5%,
+        45% 5%,
+        55% 5%,
+        65% 5%,
+        75% 5%, 
+        85% 5%,
+        95% 5%,
+            
+        5% 95%,
+        15% 95%,
+        25% 95%, 
+        35% 95%,
+        45% 95%,
+        55% 95%,
+        65% 95%,
+        75% 95%, 
+        85% 95%,
+        95% 95%;
+    background-size:
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+            
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%,
+        5% 8%;
+}
+.single-film .film-frame {
+    margin: 12% 5%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: -webkit-grid;
+    display: -ms-grid;
+    -webkit-grid-columns: 1fr;
+    -webkit-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+#firstFilm {
+    left: 0%;
+}
+
+#secondFilm {
+    left: 20%;
+}
+
+#thirdFilm {
+    left: 40%;
+}
+
+#fourtFilm {
+    left: 60%
+}
+
+#fifthFilm {
+    left: 80%;
+}
+
+#lineBelowFilm {
+    border-width: 7px;
+    border: solid rgb(255,222,125);
+    position: absolute;
+    width: 100%;
+    top: 96%;
+    left: 0%;
+}
+
+/* Img */
+.film-frame img {
+    height: 145px;
+    width: 250px;
+}
+
+/* FilmRoll Arrows */
+#arrowLeft {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:80px;
+    z-index: 1;
+}
+
+#arrowRight {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:80px;
+    z-index: 1;
+    right: 0%;
+}
+/* detailsPart */
+#detailsPart  {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    color:  rgb(255,222,125);
+    top: 200px;
+    width: 100%;
+    height: 270px;
+   
+}
+
+#detailsPart img {
+    width: 400px;
+    height: 250px;
+    float: right;
+    top: 0px;
+    
+}
+
+/* Movie Category */
+#moviesCategory {
+    display: none;
+}
+
+.movie-container {
+    width: 150px;
+    height: 190px;
+    background-color:rgb(255,222,125); 
+    position:absolute;
+}
+
+#movieContainer1 {
+    top:270px;
+    left: 30px;
+}
+
+#movieContainer2 {
+    top: 270px;
+    left: 195px;
+}
+
+#movieContainer3 {
+    top: 270px;
+    left:360px;
+}
+
+#movieContainer4 {
+    top: 270px;
+    left:525px;
+}
+
+#movieContainer5 {
+    top: 270px;
+    left:690px;
+}
+
+#movieContainer6 {
+    top: 270px;
+    left:855px;
+}
+
+#movieContainer7 {
+    top: 270px;
+    left:1020px;
+}
+
+#movieContainer8 {
+    top: 270px;
+    left:1185px;
+}
+
+#moviesCategoryTitle {
+    position: absolute;
+    font-size: 30px;
+    top: 220px;
+    left: 40px;
+    color:rgb(255,222,125);
+}
+
+.movie-picture img {
+    width: 120px;
+    height: 130px;
+    position:absolute;
+    top: 10px;
+    left:15px;
+}
+
+.movie-details {
+    font-family: 'Voltaire', sans-serif;
+    position:absolute;
+    top: 75%;
+    left: 9%;
+    width: 140px;
+    height: 50px;
+    font-size: 12px;
+}
+
+#categoryArrowLeft {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:325px;
+    left: 0px;
+    z-index: 5;
+}
+
+#categoryArrowRight {
+    position: absolute;
+    font-size: 40px;
+    color: rgb(255,222,125);
+    top:325px;
+    right: 0px;
+    z-index: 5;
+}
+
+/* Footer */
+.text-part {
+    font-family:'Voltaire', sans-serif;
+    font-size: 15px;
+    color: rgb(255,222,125);
+}
+
+#firstText {
+    position: absolute;
+    bottom:4%;
+    left:5%;
+}
+
+#secondText {
+    position: absolute;
+    bottom: 0%;
+    left: 5%;
+}
+
+#thirdText {
+    position: absolute;
+    bottom: 4%;
+    left: 15%;
+}
+
+#fourthText {
+    position: absolute;
+    bottom: 0%;
+    left: 15%;
+}
+
+.icon-part {
+    color: rgb(255,222,125);
+    font-size: 30px;
+    position: absolute;
+    bottom: 2%;
+    right: 15%;
+}
+
+#facebookIcon {
+    padding-left: 10px ;
+}
+
+#instagramIcon {
+    padding-left: 10px ;
+}
+
+#twiterIcon {
+    padding-left: 10px ;
+}
+
+#youtubeIcon {
+    padding-left: 10px ;
+}
