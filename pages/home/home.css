@@ -379,7 +379,7 @@ main {
     position: absolute;
     font-size: 40px;
     color: rgb(255,222,125);
-    top:325px;
+    top:67%;
     left: 0px;
     z-index: 5;
 }
@@ -388,7 +388,7 @@ main {
     position: absolute;
     font-size: 40px;
     color: rgb(255,222,125);
-    top:325px;
+    top:67%;
     right: 0px;
     z-index: 5;
 }
