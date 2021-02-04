@@ -5,12 +5,13 @@
 
 body {
     background-color: rgb(58,58,58);
+    margin: 0%;
 }
 
 /* Header */
 header {
     background-color:rgb(44,44,44);
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 0%;
     left:0%;
@@ -18,7 +19,8 @@ header {
 
 #logoImage {
     position: relative;
-    left: 1%;
+    left: 0.5%;
+    top: 1%;
     height: 80px;
     width: 50px;
 }
@@ -27,7 +29,7 @@ header {
     position: absolute;
     font-size: 25px;
     left: 10%;
-    top: 24.5%;
+    top: 25%;
     color: rgb(255,222,125);
 }
 
@@ -85,7 +87,7 @@ header {
     position: absolute;
     font-size: 27px;
     top: 22%;
-    right: 35%;
+    right: 36%;
     color: rgb(255,222,125);
 }
 
@@ -112,16 +114,18 @@ header {
 /* Content */
 main {
     position: relative;
-    top: 80px;
+    top: 20%;
+    height: 515px;
+    background-color:rgb(255,222,125);
 }
 /* Film part */
 /* Frame */
 .single-film {
-    top: 8%;
+    top: 0%;
     float: left;
     width: 20%;
     margin: 0%;
-    padding-top: 15%;
+    padding-top: 200px;
     position: absolute;
     background-color: #000;
     background-image:  
@@ -245,6 +249,12 @@ main {
 .film-frame img {
     height: 145px;
     width: 250px;
+    position:absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top:0;
+    bottom: 0;
 }
 
 /* FilmRoll Arrows */
@@ -252,7 +262,7 @@ main {
     position: absolute;
     font-size: 40px;
     color: rgb(255,222,125);
-    top:80px;
+    top:17%;
     z-index: 1;
 }
 
@@ -260,27 +270,30 @@ main {
     position: absolute;
     font-size: 40px;
     color: rgb(255,222,125);
-    top:80px;
+    top:17%;
     z-index: 1;
     right: 0%;
 }
 /* detailsPart */
-#detailsPart  {
+#detailsPartText  {
     font-family: 'Voltaire', sans-serif;
     position: absolute;
     font-size: 20px;
-    color:  rgb(255,222,125);
-    top: 200px;
-    width: 100%;
-    height: 270px;
+    color:  rgb(44,44,44);
+    top: 46%;
+    left: 2%;
+    width: 65%;
+    height: 200px;
+    line-height: 2;
    
 }
 
-#detailsPart img {
+#detailsPartImg img {
+    position: absolute;
     width: 400px;
     height: 250px;
-    float: right;
-    top: 0px;
+    right: 2%;
+    top: 47%;
     
 }
 
@@ -297,50 +310,50 @@ main {
 }
 
 #movieContainer1 {
-    top:270px;
-    left: 30px;
+    left: 2.5%;
+    top:55%;
 }
 
 #movieContainer2 {
-    top: 270px;
-    left: 195px;
+    top:55%;
+    left: 14.5%;
 }
 
 #movieContainer3 {
-    top: 270px;
-    left:360px;
+    top:55%;
+    left:26.5%;
 }
 
 #movieContainer4 {
-    top: 270px;
-    left:525px;
+    top:55%;
+    left:38.5%;
 }
 
 #movieContainer5 {
-    top: 270px;
-    left:690px;
+    top:55%;
+    left:50.5%;
 }
 
 #movieContainer6 {
-    top: 270px;
-    left:855px;
+    top:55%;
+    left:62.5%;
 }
 
 #movieContainer7 {
-    top: 270px;
-    left:1020px;
+    top:55%;
+    left:74.5%;
 }
 
 #movieContainer8 {
-    top: 270px;
-    left:1185px;
+    top:55%;
+    left:86.5%;
 }
 
 #moviesCategoryTitle {
     position: absolute;
     font-size: 30px;
-    top: 220px;
-    left: 40px;
+    top:45%;
+    left: 4%;
     color:rgb(255,222,125);
 }
 
@@ -389,25 +402,25 @@ main {
 
 #firstText {
     position: absolute;
-    bottom:4%;
+    bottom:5%;
     left:5%;
 }
 
 #secondText {
     position: absolute;
-    bottom: 0%;
+    bottom: 1%;
     left: 5%;
 }
 
 #thirdText {
     position: absolute;
-    bottom: 4%;
+    bottom: 5%;
     left: 15%;
 }
 
 #fourthText {
     position: absolute;
-    bottom: 0%;
+    bottom: 1%;
     left: 15%;
 }
 

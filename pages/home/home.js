@@ -146,13 +146,20 @@ function displayMovieDetails(result) {
     let genre = result.Genre;
     let image = result.Poster
     let container = document.getElementById('detailsPart');
+    let textContainer = document.createElement('div');
+    textContainer.setAttribute('id', 'detailsPartText');
+    container.appendChild(textContainer);
 
-    container.innerHTML = `
+    textContainer.innerHTML = `
     <h3>Title: ${title}</h3>
     <div>${description}</div>
-    <div>Actors: ${actors}</div>
-    <div>Genre: ${genre}</div>
-    <img src="${image}">`
+    <div><b>Actors</b>:  ${actors}</div>
+    <div><b>Genre</b>:  ${genre}</div>`
+
+    let imgContainer = document.createElement('div');
+    imgContainer.setAttribute('id', 'detailsPartImg');
+    container.appendChild(imgContainer)
+    imgContainer.innerHTML = `<img src="${image}">`
 }
 
 // displayed by default details for first movie
@@ -173,6 +180,7 @@ for (let movie of movies) {
         let selectedMovieId = lastMovie.getAttribute('id')
         console.log(selectedMovieId)
         getMovieDetails(selectedMovieId)
+        hidePreviousDetails()
     })
 }
 
@@ -234,6 +242,14 @@ function hidePreviousPictures() {
     }
 }
 
+// hiding previous details about the film was clicked in filmroll
+function hidePreviousDetails() {
+    let containers = document.querySelectorAll('#detailsPartText');
+    for(let i = 0; i < containers.length; i++) {
+        containers[i].style.display = 'none';
+    }
+}
+
 // HEADER FUNCTIONALITY
 
 displayMenu()
@@ -248,6 +264,7 @@ function displayMenu() {
         displayAnimationMovies();
         displaySciFiMovies();
         displayFamilyMovies();
+       
 
     })
 }
@@ -256,6 +273,7 @@ function displayActionMovies() {
     let actionButton = document.getElementById('actionMovies');
     actionButton.addEventListener('click', function () {
 
+        document.getElementById('contentPart').style.backgroundColor = 'rgb(58,58,58)';
         getMovieCategory('action')
         hideShow()
 
@@ -268,6 +286,7 @@ function displayDramaMovies() {
     let dramaButton = document.getElementById('dramaMovies');
     dramaButton.addEventListener('click', function () {
 
+        document.getElementById('contentPart').style.backgroundColor = 'rgb(58,58,58)';
         getMovieCategory('drama')
         hideShow()
 
@@ -281,6 +300,7 @@ function displayAnimationMovies() {
     let animationButton = document.getElementById('animationMovies');
     animationButton.addEventListener('click', function () {
 
+        document.getElementById('contentPart').style.backgroundColor = 'rgb(58,58,58)';
         getMovieCategory('animation')
         hideShow()
 
@@ -293,6 +313,7 @@ function displaySciFiMovies() {
     let sciFiButton = document.getElementById('sciFiMovies');
     sciFiButton.addEventListener('click', function () {
 
+        document.getElementById('contentPart').style.backgroundColor = 'rgb(58,58,58)';
         getMovieCategory('sci-fi')
         hideShow()
 
@@ -305,6 +326,7 @@ function displayFamilyMovies() {
     let familyButton = document.getElementById('familyMovies');
     familyButton.addEventListener('click', function () {
 
+        document.getElementById('contentPart').style.backgroundColor = 'rgb(58,58,58)';
         getMovieCategory('family');
         hideShow()
 
