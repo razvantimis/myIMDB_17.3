@@ -316,3 +316,25 @@ a:-webkit-any-link {
   justify-content: space-evenly;
 
 }
+
+.logOutButton{
+  background-color: transparent;
+    font-family: 'Voltaire';
+    position: absolute;
+    top: 24px;
+    right: 80px;
+    font-size: 20px;
+    color: rgb(255, 222, 125);
+    border: none;
+}
+
+.headerButtons{
+  border: none;
+    position: absolute;
+    top: 24px;
+    right: 80px;
+    background-color: transparent;
+    color: rgb(255, 222, 125);
+    font-family: 'Voltaire';
+    font-size: 20px;
+}
