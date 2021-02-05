@@ -111,6 +111,17 @@ header {
     left:0%;
 }
 
+.headerButtons{
+    border: none;
+      position: absolute;
+      top: 24px;
+      right: 63px;
+      background-color: transparent;
+      color: rgb(255, 222, 125);
+      font-family: 'Voltaire';
+      font-size: 20px;
+  }
+
 /* Content */
 main {
     position: relative;

@@ -33,5 +33,6 @@ function setPointer() {
     document.getElementById('categoryArrowLeft').style.cursor = 'pointer';
     document.getElementById('categoryArrowRight').style.cursor = 'pointer';
     document.getElementById('movieContainers').style.cursor = 'pointer';
+    document.getElementById('userIcon').style.cursor = 'pointer';
 }
 
