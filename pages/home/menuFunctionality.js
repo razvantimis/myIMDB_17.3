@@ -148,6 +148,8 @@ function setHtmlContainer(i, result) {
     pictureCard.setAttribute('class', 'movie-picture')
     let image = document.createElement('img');
     pictureCard.appendChild(image);
+    let id = result.results[i]._id;
+    image.setAttribute('id', id);
 
     let details = document.createElement('div');
     details.setAttribute('class', 'movie-details')
@@ -220,6 +222,8 @@ function setContainerCategoryPreviousNextMovies(i, container, result) {
     pictureCard.setAttribute('class', 'movie-picture')
     let image = document.createElement('img');
     pictureCard.appendChild(image);
+    let id = result.results[i]._id;
+    image.setAttribute('id', id);
 
     let details = document.createElement('div');
     details.setAttribute('class', 'movie-details')
