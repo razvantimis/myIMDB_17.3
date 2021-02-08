@@ -1,3 +1,4 @@
+// debugger
 displayMenu()
 // added functionality to menu button
 function displayMenu() {
@@ -51,11 +52,11 @@ function displayFamilyMovies() {
 function setCategory(genre) {
     console.log(genre)
     document.getElementById('contentPart').style.backgroundColor = 'rgb(58,58,58)';
-        getMovieCategory(genre);
-        hideShow()
-        hidePreviousCategoryPictures()
-        let title = document.getElementById('moviesCategoryTitle');
-        title.innerText = genre
+    getMovieCategory(genre);
+    hideShow()
+    hidePreviousCategoryPictures()
+    let title = document.getElementById('moviesCategoryTitle');
+    title.innerText = genre
 }
 
 // hiding/ showing what is necessary when moviesCategory is accesed
@@ -67,85 +68,100 @@ function hideShow() {
 
 let categoryNextIndex = 0;
 let categoryPreviousIndex = 0;
+
 function getMovieCategory(genre) {
     const moviesCategoryUrl = `https://movies-app-siit.herokuapp.com/movies?Genre=${genre}`
-   
+
     fetch(moviesCategoryUrl, {
         method: 'GET'
     }).then(function (response) {
         return response.json();
     }).then(function (jsonResponse) {
         console.log(jsonResponse)
+       
         displayCategoryMovies(jsonResponse);
+        accessRightButton(jsonResponse)
+        accessLeftButton(jsonResponse)
+    })
+}
 
-        // right arrow functionality
-        let categoryRightButton = document.getElementById('categoryArrowRight');
-        categoryRightButton.addEventListener('click', function () {
-            if (categoryNextIndex < 2) {
-                hidePreviousCategoryPictures();
-                categoryNextIndex++;
-                categoryRightButtonFunctionality(jsonResponse)
-            } else {
-                categoryRightButton.style.display = 'none'
-            }
-            // if leftArrow is clicked before rightArrow, this display it back when rightArrow is clicked
-            document.getElementById('categoryArrowLeft').style.display = 'block';
+// right arrow functionality
+function accessRightButton(jsonResponse) {
+    let categoryRightButton = document.getElementById('categoryArrowRight');
 
-            categoryPreviousIndex = categoryNextIndex;
-            // hiding rightArrow when the last movie is displayed before click 
-            if (categoryNextIndex >= 2) {
-                categoryRightButton.style.display = 'none'
-            }
-        })
+    categoryRightButton.addEventListener('click', function () {
+        if (categoryNextIndex < 2) {
+            hidePreviousCategoryPictures();
+            categoryNextIndex++;
+            categoryRightButtonFunctionality(jsonResponse, categoryNextIndex)
+            
+        } else {
+            categoryRightButton.style.display = 'none'
+        }
+        // if leftArrow is clicked before rightArrow, this display it back when rightArrow is clicked
+        document.getElementById('categoryArrowLeft').style.display = 'block';
 
-        // left arrow functionality
-        let categoryLeftButton = document.getElementById('categoryArrowLeft');
-        categoryLeftButton.addEventListener('click', function () {
-            if (categoryPreviousIndex === 0) {
-                categoryLeftButton.style.display = 'none';
-            } else {
-                hidePreviousCategoryPictures()
-                categoryLeftButtonFunctionality(jsonResponse)
-                categoryPreviousIndex--;
-            }
+        categoryPreviousIndex = categoryNextIndex;
+        // hiding rightArrow when the last movie is displayed before click 
+        if (categoryNextIndex >= 2) {
+            categoryRightButton.style.display = 'none'
+        }
+    })
+}
+// left arrow functionality
+function accessLeftButton(jsonResponse) {
+    let categoryLeftButton = document.getElementById('categoryArrowLeft');
+    categoryLeftButton.addEventListener('click', function () {
+        if (categoryPreviousIndex === 0) {
+            categoryLeftButton.style.display = 'none';
+        } else {
+            hidePreviousCategoryPictures()
+            categoryLeftButtonFunctionality(jsonResponse)
+            categoryPreviousIndex--;
+        }
 
-            // displayed rightArrow(if is hidden) when leftArrow is clicked
-            document.getElementById('categoryArrowRight').style.display = 'block';
+        // displayed rightArrow(if is hidden) when leftArrow is clicked
+        document.getElementById('categoryArrowRight').style.display = 'block';
 
-            // hiding leftArrow when the first movie is displayed before click
-            if (categoryPreviousIndex === 0) {
-                categoryLeftButton.style.display = 'none';
-            }
+        // hiding leftArrow when the first movie is displayed before click
+        if (categoryPreviousIndex === 0) {
+            categoryLeftButton.style.display = 'none';
+        }
 
-            // initialize categoryNextIndex
-            categoryNextIndex = categoryPreviousIndex
-        })
+        // initialize categoryNextIndex
+        categoryNextIndex = categoryPreviousIndex
     })
 }
 
 // set html container for movies
 function displayCategoryMovies(result) {
     for (let i = 0; i < result.results.length - 2; i++) {
-        let container = chooseCategoryContainer(i)
-        console.log(container)
-        let pictureCard = document.createElement('div');
-        pictureCard.setAttribute('class', 'movie-picture')
-        let image = document.createElement('img');
-        pictureCard.appendChild(image);
-
-        let details = document.createElement('div');
-        details.setAttribute('class', 'movie-details')
-        container.append(pictureCard, details)
-
-        image.src = result.results[i].Poster;
-        let rating = result.results[i].imdbRating;
-        let title = result.results[i].Title
-
-        details.innerHTML = `
-            <i class="fa fa-star"></i>
-            <span>${rating}</span>
-            <div>${title}</div>`
+        setHtmlContainer(i, result)
     }
+}
+
+function setHtmlContainer(i, result) {
+    let container = chooseCategoryContainer(i)
+    console.log(container)
+
+    let pictureCard = document.createElement('div');
+    pictureCard.setAttribute('class', 'movie-picture')
+    let image = document.createElement('img');
+    pictureCard.appendChild(image);
+
+    let details = document.createElement('div');
+    details.setAttribute('class', 'movie-details')
+    container.append(pictureCard, details)
+
+    image.src = result.results[i].Poster;
+    let rating = result.results[i].imdbRating;
+    let title = result.results[i].Title
+
+    details.innerHTML = `
+        <i class="fa fa-star"></i>
+        <span>${rating}</span>
+        <div>${title}</div>`
+
 }
 
 // set the container for each movie
@@ -172,7 +188,7 @@ function chooseCategoryContainer(i) {
     return container;
 }
 
-function categoryRightButtonFunctionality(result) {
+function categoryRightButtonFunctionality(result, categoryNextIndex) {
     console.log(categoryNextIndex)
     for (let i = categoryNextIndex; i < result.results.length - 2 + categoryNextIndex; i++) {
         let container = chooseCategoryContainer(i - categoryNextIndex);

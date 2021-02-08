@@ -3,17 +3,17 @@ displayHome()
 function displayHome() {
     let homeButton = document.getElementById('home');
     homeButton.addEventListener('click', () => {
-        window.location.href = '/Pages/home/home.html';
+        window.location.href = '/pages/home/home.html';
     })
 }
 
-// goingToDetailsPage()
-// function goingToDetailsPage() {
-//     let detailsPart = document.getElementById('detailsPart');
-//     detailsPart.addEventListener('click', () => {
-//         window.location.href = '/pages/movie_details/movie_details.html';
-//     })
-// }
+goingToDetailsPage()
+function goingToDetailsPage() {
+    let detailsPart = document.getElementById('detailsPart');
+    detailsPart.addEventListener('click', () => {
+        window.location.href = '/pages/movie_details/movie_details.html';
+    })
+}
 
 goingToLogInPage()
 function goingToLogInPage() {
