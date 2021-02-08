@@ -105,33 +105,8 @@ function setTitle(inputValue) {
 function hideEmptyContainers(result) {
     let containers = document.querySelectorAll('.movie-container');
     console.log(containers)
-    let startHiding;
 
-    if (result.results.length === 0) {
-        startHiding = 0;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 1) {
-        startHiding = 1;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 2) {
-        startHiding = 2;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 3) {
-        startHiding = 3;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 4) {
-        startHiding = 4;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 5) {
-        startHiding = 5;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 6) {
-        startHiding = 6;
-        iterateInContainers(containers, startHiding);
-    } else if (result.results.length === 7) {
-        startHiding = 7;
-        iterateInContainers(containers, startHiding);
-    }
+    iterateInContainers(containers, result.results.length)
 }
 
 function iterateInContainers(containers, startHiding) {
