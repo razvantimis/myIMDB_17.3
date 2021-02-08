@@ -7,12 +7,51 @@ function displayHome() {
     })
 }
 
-goingToDetailsPage()
-function goingToDetailsPage() {
+// display on click details page from details part in home
+goingToDetailsPageFromHomeDetails()
+function goingToDetailsPageFromHomeDetails() {
     let detailsPart = document.getElementById('detailsPart');
     detailsPart.addEventListener('click', () => {
-        window.location.href = '/pages/movie_details/movie_details.html';
+        let image = detailsPart.getElementsByTagName('img');
+        let lastImage = image[image.length - 1]
+        console.log(lastImage)
+        let imageId = lastImage.getAttribute('id')
+        console.log(imageId)
+        window.location.href = `/pages/movie_details/movie_details.html?id=${imageId}`;
     })
+}
+
+// display on double click page with details for selected movie from filmroll
+// getSpecificMovieFunction is from filmRollAndDetails.js
+goingToDetailsPageFromFilmRoll()
+function goingToDetailsPageFromFilmRoll() {
+    let movies = document.querySelectorAll('.film-frame');
+    for (let movie of movies) {
+        movie.addEventListener('dblclick', function () {
+            console.log(movie)
+            let selectedMovieId = getSpecificMovie(movie)
+            window.location.href = `/pages/movie_details/movie_details.html?id=${selectedMovieId}`;
+        })
+    }
+}
+
+// display on click details page from movies category in home
+goingToDetailsPageFromCategoryMovies()
+function goingToDetailsPageFromCategoryMovies() {
+    let movies = document.querySelectorAll('.movie-container');
+    for (let movie of movies) {
+        movie.addEventListener('click', function() {
+            let imagesClass = movie.querySelectorAll('.movie-picture');
+            console.log(imagesClass)
+            let lastImageClass = imagesClass[imagesClass.length - 1]
+            console.log(lastImageClass)
+            let lastImage = lastImageClass.getElementsByTagName('img')
+            let imageId = lastImage[0].getAttribute('id');
+            console.log(imageId)
+            
+            window.location.href = `/pages/movie_details/movie_details.html?id=${imageId}`;
+        })
+    }
 }
 
 goingToLogInPage()

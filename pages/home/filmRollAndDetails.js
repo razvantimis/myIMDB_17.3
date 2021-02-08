@@ -109,6 +109,7 @@ function getMovieDetails(id) {
 
 // displayed details for selected movie 
 function displayMovieDetails(result) {
+    let id = result._id
     let title = result.Title
     let description = result.Plot;
     let actors = result.Actors
@@ -128,7 +129,7 @@ function displayMovieDetails(result) {
     let imgContainer = document.createElement('div');
     imgContainer.setAttribute('id', 'detailsPartImg');
     container.appendChild(imgContainer)
-    imgContainer.innerHTML = `<img src="${image}">`
+    imgContainer.innerHTML = `<img src="${image}" id="${id}">`
 }
 
 // displayed by default details for first movie
@@ -142,17 +143,20 @@ let movies = document.querySelectorAll('.film-frame');
 for (let movie of movies) {
     movie.addEventListener('click', function () {
         console.log(movie)
-
-        let selectedContainer = movie.getElementsByTagName('img')
-        let lastMovie = selectedContainer[selectedContainer.length - 1]
-        console.log(lastMovie)
-        let selectedMovieId = lastMovie.getAttribute('id')
-        console.log(selectedMovieId)
+        let selectedMovieId = getSpecificMovie(movie)
         getMovieDetails(selectedMovieId)
         hidePreviousDetails()
     })
 }
 
+function getSpecificMovie(movie) {
+    let selectedContainer = movie.getElementsByTagName('img')
+    let lastMovie = selectedContainer[selectedContainer.length - 1]
+    console.log(lastMovie)
+    let selectedMovieId = lastMovie.getAttribute('id')
+    console.log(selectedMovieId)
+    return selectedMovieId;
+}
 // displayed next movie in filmroll
 // nextIndex e numarul de cate ori da click pe sageata dreapta
 // conditia din for: initial sunt afisate filmele index 0-4, deci cand nu s-a dat click sa afiseze pana cand i < 5 (nextIndex=0)
