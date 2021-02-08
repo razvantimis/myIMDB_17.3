@@ -35,17 +35,17 @@ function requestMovies(inputValue) {
             accessLeftButton(jsonResponse);
             accessRightButton(jsonResponse);
 
-        // situation when result is 9
-        } else if(jsonResponse.results.length === 9) {
+            // situation when result is 9
+        } else if (jsonResponse.results.length === 9) {
             setTitle(inputValue)
             handelingSituationWith9Movies(jsonResponse);
 
-        // situation when result is betwwen 1 and 8
-        } else if(jsonResponse.results.length > 0 && jsonResponse.results.length < 9 ) {
+            // situation when result is betwwen 1 and 8
+        } else if (jsonResponse.results.length > 0 && jsonResponse.results.length < 9) {
             setTitle(inputValue)
             handelingLessMovies(jsonResponse);
-        
-        // situation when result is 0
+
+            // situation when result is 0
         } else {
             hideEmptyContainers(jsonResponse)
             hideArrows()
@@ -60,7 +60,7 @@ function requestMovies(inputValue) {
 function displayAgainMovieContainers() {
     let containers = document.querySelectorAll('.movie-container');
     console.log(containers)
-    for (container of containers ) {
+    for (container of containers) {
         container.style.display = 'block'
     }
 }
@@ -100,54 +100,45 @@ function setTitle(inputValue) {
     title.innerText = 'There are movies that contain ' + '"' + inputValue + '"' + ' in the title:'
 }
 
+// handeling the situation when the result from search is less then 8
+// hiding empty containers
 function hideEmptyContainers(result) {
-    console.log(result.results.length)
-    if(result.results.length === 0) {
-        document.getElementById('movieContainer1').style.display = 'none';
-        document.getElementById('movieContainer2').style.display = 'none';
-        document.getElementById('movieContainer3').style.display = 'none';
-        document.getElementById('movieContainer4').style.display = 'none';
-        document.getElementById('movieContainer5').style.display = 'none';
-        document.getElementById('movieContainer6').style.display = 'none';
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
+    let containers = document.querySelectorAll('.movie-container');
+    console.log(containers)
+    let startHiding;
+
+    if (result.results.length === 0) {
+        startHiding = 0;
+        iterateInContainers(containers, startHiding);
     } else if (result.results.length === 1) {
-        document.getElementById('movieContainer2').style.display = 'none';
-        document.getElementById('movieContainer3').style.display = 'none';
-        document.getElementById('movieContainer4').style.display = 'none';
-        document.getElementById('movieContainer5').style.display = 'none';
-        document.getElementById('movieContainer6').style.display = 'none';
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
-    } else if(result.results.length === 2) {
-        document.getElementById('movieContainer3').style.display = 'none';
-        document.getElementById('movieContainer4').style.display = 'none';
-        document.getElementById('movieContainer5').style.display = 'none';
-        document.getElementById('movieContainer6').style.display = 'none';
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
-    }  else if(result.results.length === 3) {
-        document.getElementById('movieContainer4').style.display = 'none';
-        document.getElementById('movieContainer5').style.display = 'none';
-        document.getElementById('movieContainer6').style.display = 'none';
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
-    }  else if(result.results.length === 4) {
-        document.getElementById('movieContainer5').style.display = 'none';
-        document.getElementById('movieContainer6').style.display = 'none';
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
-    } else if(result.results.length === 5) {
-        document.getElementById('movieContainer6').style.display = 'none';
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
-    }  else if(result.results.length === 6) {
-        document.getElementById('movieContainer7').style.display = 'none';
-        document.getElementById('movieContainer8').style.display = 'none';
-    }  else if(result.results.length === 7) {
-        document.getElementById('movieContainer8').style.display = 'none';
+        startHiding = 1;
+        iterateInContainers(containers, startHiding);
+    } else if (result.results.length === 2) {
+        startHiding = 2;
+        iterateInContainers(containers, startHiding);
+    } else if (result.results.length === 3) {
+        startHiding = 3;
+        iterateInContainers(containers, startHiding);
+    } else if (result.results.length === 4) {
+        startHiding = 4;
+        iterateInContainers(containers, startHiding);
+    } else if (result.results.length === 5) {
+        startHiding = 5;
+        iterateInContainers(containers, startHiding);
+    } else if (result.results.length === 6) {
+        startHiding = 6;
+        iterateInContainers(containers, startHiding);
+    } else if (result.results.length === 7) {
+        startHiding = 7;
+        iterateInContainers(containers, startHiding);
     }
-} 
+}
+
+function iterateInContainers(containers, startHiding) {
+    for (let i = startHiding; i < containers.length; i++) {
+        containers[i].style.display = 'none';
+    }
+}
 
 function hideArrows() {
     document.getElementById('categoryArrowLeft').style.display = 'none';
