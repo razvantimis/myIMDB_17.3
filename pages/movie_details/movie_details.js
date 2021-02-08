@@ -9,6 +9,37 @@ const movieRuntime = document.querySelector("#movieRuntime")
 const movieGenre = document.querySelector("#movieGenre")
 const imdbRating = document.querySelector("#imdbRating")
 const imdbVotes = document.querySelector("#imdbVotes")
+const deleteButton = document.querySelector("#delete")
+
+
+
+let token = localStorage.getItem("token");
+
+
+const deleteMovie = () => {
+    const shouldDeleteMovie = confirm("Are you sure you want to delete this movie?")
+    if(shouldDeleteMovie){
+        fetch(baseURL+moveiId, {
+            headers: {
+                "X-Auth-Token": token,
+                "Content-Type": "application/json"
+            },
+            method: "DELETE",
+          })
+          .then((response) => {
+              console.log(response); 
+            
+        })
+          .then((json) => {
+            console.log(json);
+            window.location = "./../home/home.html" 
+          }).catch((error)=>{
+            console.log(error);
+          })
+    }
+}
+
+deleteButton.addEventListener("click", deleteMovie)
 
 const getMovies = () => {
   fetch(baseURL+moveiId, {
@@ -30,6 +61,8 @@ const getMovies = () => {
   })
 }
 getMovies()
+
+
 
 
 
