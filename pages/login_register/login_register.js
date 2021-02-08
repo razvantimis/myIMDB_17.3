@@ -4,38 +4,9 @@ const logOutPath = "/auth/logout"
 const registerPath = "/auth/register";
 const errorMessage = document.getElementById("errorMessage");
 
-function signIn(){
-  const buttons = document.getElementById("buttonContainer");
- 
- 
-  
-  
-  
-  
-  
-  if (localStorage.getItem("token")){
-    
-    var logOutBtn = document.createElement("button");
-    logOutBtn.classList.add("headerButtons");
-    logOutBtn.setAttribute("id","logOutButton");
-  logOutBtn.textContent = "Log Out";
-  buttons.appendChild(logOutBtn);
-  } else {
-    var loginBtn = document.createElement("button");
-    loginBtn.classList.add("headerButtons");
-    loginBtn.setAttribute("id", "loginButton");
-    loginBtn.textContent = "Login";
-    buttons.appendChild(loginBtn);
-  }
 
 
 console.log("localtoken:" , localStorage.getItem("token"))
-
-
-}
-
-signIn()
-
 
 function parseResponse(response) {
   if (response.status === 200) {
@@ -59,7 +30,7 @@ function navigateToLoginPage(){
 function accountData(usernameParam, passwordParam) {
   var username = document.getElementById(usernameParam).value;
   var password = document.getElementById(passwordParam).value;
-  console.log("username:" , username);
+  
   var object = {
     username: username,
     password: password,
@@ -67,18 +38,7 @@ function accountData(usernameParam, passwordParam) {
   return object;
 }
 
-
-
-
-
-
-var createAccountButton = document.getElementById('createAccountButton');
-
-
 var loginButton = document.getElementById('loginButton');
-
-
-
 loginButton.addEventListener("click", function () {
   var responseData = accountData("username", "password");
   
@@ -98,38 +58,47 @@ loginButton.addEventListener("click", function () {
 })
 });
 
-var logOutButton = document.getElementById('logOutButton');
 
- logOutButton.addEventListener("click", function () {
- let token = localStorage.getItem("token");
-  fetch(baseUrl+logOutPath, 
-     { method: "GET" , 
-       headers:{ 
-       "X-Auth-Token": token
-       }
-     })
-     .then(parseResponse)
-     .then((response) => {
-     window.localStorage.removeItem("token");
-     })
-     .catch(error => {
-      
-    console.error(error)
+var createNewAccountButton = document.getElementById('createNewAccountButton');
 
-    errorMessage.innerHTML = "You have to be logged-in in order to log out";
-     })
+createNewAccountButton.addEventListener("click", function(){
+
+  const createAccountContainer = document.getElementById('createNewAccountContainer')
+
+  createAccountContainer.classList.add('display');
+  createAccountContainer.classList.remove('display-none');
   
-});
+  const signInContainer = document.getElementById('signInContainer')
+  signInContainer.classList.add('display-none');
+  signInContainer.classList.remove('display');
+  
+})
+
+const backToLogIn = document.getElementById('backToLogin') 
+
+backToLogIn.addEventListener("click", function(){
+
+  const createAccountContainer = document.getElementById('createNewAccountContainer')
+  createAccountContainer.classList.remove('display');
+  createAccountContainer.classList.add('display-none');
+
+  const signInContainer = document.getElementById('signInContainer')
+  signInContainer.classList.add('display');
+  signInContainer.classList.remove('display-none');
+})
+
+var createAccountButton = document.getElementById('createAccountButton');
 
 createAccountButton.addEventListener("click", function () {
-  var responseData = accountData("createUsername", "createPassword");
-  
+var responseData = accountData("createUsername", "createPassword");
 
   fetch(baseUrl + registerPath, { method: "POST", headers: { 'Content-Type': 'application/json', },
    body: JSON.stringify(responseData) })
     .then(parseResponse)
-    .then(() => {
-      navigateToHomePage();
+    .then((response) => {
+      console.log("response: " ,response)
+      navigateToHomePage()
+      localStorage.setItem("token", response.accessToken);
     })
     .catch(error => { errorMessage.innerHTML = "Username already existing" });
 

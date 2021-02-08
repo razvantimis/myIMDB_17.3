@@ -258,8 +258,6 @@ a:-webkit-any-link {
   display: flex;
   flex-direction: column;
   float: right;
-
-  padding-top: 5%;
   padding-bottom: 10%;
   align-items: center;
 
@@ -337,4 +335,12 @@ a:-webkit-any-link {
     color: rgb(255, 222, 125);
     font-family: 'Voltaire';
     font-size: 20px;
+}
+
+.display-none{
+display:none;
+}
+
+.display{
+display:flex;
 }

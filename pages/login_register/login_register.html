@@ -43,16 +43,16 @@
     <p id="errorMessage"></p>
     <section class="sign-in">
 
-      <div class="sign-in-container">
+      <div id="signInContainer" class="sign-in-container">
         <p>Sign in</p>
-        <input id="username" name="username" class="sign-in-input" type="text" placeholder="username">
-        <input id="password" name="password" class="sign-in-input" type="text" placeholder="password">
+        <input id="username" name="username" class="sign-in-input" type="text" placeholder="username" value="">
+        <input id="password" name="password" class="sign-in-input" type="text" placeholder="password" value="">
         <div class="black-line"></div>
         <button id="loginButton">Login</button>
-
+        <button id="createNewAccountButton">Create New Account</button>
       </div>
-      <div class="create-new-account-container">
-
+      <div id="createNewAccountContainer" class="create-new-account-container display-none">
+        <button class="button" id="backToLogin">Back To Login</button>
         <p>Create new account</p>
         <label for="createUsername">Username:</label><br>
         <input id="createUsername" name="createUsername" type="text" placeholder="">
