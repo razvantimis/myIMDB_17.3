@@ -1,4 +1,4 @@
-baseUrl = "https://movies-app-siit.herokuapp.com/movies/";
+baseUrl = "https://movies-app-siit.herokuapp.com/movies";
 
 let titleInput = document.getElementById("titleInput");
 let yearInput = document.getElementById("yearInput");
@@ -13,7 +13,8 @@ let plotInput = document.getElementById("plotInput");
 let languageInput = document.getElementById("languageInput");
 let countryInput = document.getElementById("countryInput");
 let posterInput = document.getElementById("posterInput");
-let movieId = location.search.substring(4);
+
+const movieId = location.search.substring(4);
 
 
 var data = {
@@ -72,7 +73,7 @@ const editMovie = () => {
 
     let loginToken = localStorage.getItem("token");
 
-    fetch("https://movies-app-siit.herokuapp.com/movies/:id", {
+    fetch("https://movies-app-siit.herokuapp.com/movies" + movieId, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: {
@@ -84,7 +85,7 @@ const editMovie = () => {
         .then((json) => {
             console.log(json);
             //debugger;
-            goToHome();
+            //goToHome();
         })
         .catch((err) => console.log(err));
 
