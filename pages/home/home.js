@@ -75,3 +75,35 @@ function setPointer() {
     document.getElementById('userIcon').style.cursor = 'pointer';
 }
 
+// show border on images with mouse over
+onHover()
+function onHover() {
+    let container = document.querySelectorAll('.film-frame')
+    
+    for (picture of container) {
+        console.log(picture)
+        picture.addEventListener('mouseover', function (event) {
+        event.target.style.border = '7px ridge rgba(255,255,255, 1';
+        })
+
+        picture.addEventListener('mouseout', function(event) {
+            event.target.style.border = 'none'
+        })
+    }
+    
+    let categoryContainer = document.querySelectorAll('.movie-container')
+    console.log(categoryContainer.length)
+    
+    for(let i=0; i< categoryContainer.length; i++) {
+        categoryContainer[i].addEventListener('mouseover', function () {
+            console.log(categoryContainer[i])
+            categoryContainer[i].style.border = 'solid white';
+        })
+        categoryContainer[i].addEventListener('mouseout', function(event) {
+                event.target.style.border = 'none'
+        })
+    
+    }
+    
+    
+}
