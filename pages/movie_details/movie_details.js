@@ -44,11 +44,13 @@ const deleteMovie = () => {
 }
 
 deleteButton.addEventListener("click", deleteMovie)
+
 addButton.addEventListener("click", () => {
   window.location = "./../add-movie/add-movie.html"
 })
+
 editButton.addEventListener("click", () => {
-  window.location = "./../edit-movie/edit-movie.html"
+  window.location = `./../edit-movie/edit-movie.html?id=${moveiId}`
 })
 
 
