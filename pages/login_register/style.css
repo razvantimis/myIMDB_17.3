@@ -45,9 +45,9 @@ header {
 #home {
   font-family: Voltaire;
   position: absolute;
-  font-size: 20px;
-  top: 24%;
-  left: 20%;
+  font-size: 33px;
+  top: 32.5%;
+  right: 3%;
   color: rgb(255, 222, 125);
 }
 
@@ -343,4 +343,11 @@ display:none;
 
 .display{
 display:flex;
+}
+
+#welcome{position: absolute;
+font-size: 40px;
+left: 10%;
+top: 24.5%;
+color: rgb(255, 222, 125);
 }
