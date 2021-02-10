@@ -10,6 +10,7 @@ const movieGenre = document.querySelector("#movieGenre")
 const imdbRating = document.querySelector("#imdbRating")
 const imdbVotes = document.querySelector("#imdbVotes")
 const deleteButton = document.querySelector("#delete")
+const addButton = document.querySelector("#add")
 
 
 
@@ -40,6 +41,10 @@ const deleteMovie = () => {
 }
 
 deleteButton.addEventListener("click", deleteMovie)
+addButton.addEventListener("click", () => {
+  window.location = "./../add-movie/add-movie.html"
+})
+
 
 const getMovies = () => {
   fetch(baseURL+moveiId, {
@@ -61,6 +66,14 @@ const getMovies = () => {
   })
 }
 getMovies()
+
+displayHome()
+function displayHome() {
+    let homeButton = document.getElementById('home');
+    homeButton.addEventListener('click', () => {
+        window.location.href = '/pages/home/home.html';
+    })
+}
 
 
 
