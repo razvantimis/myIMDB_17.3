@@ -64,7 +64,7 @@ const editMovie = () => {
 
     let loginToken = localStorage.getItem("token");
 
-    fetch("https://movies-app-siit.herokuapp.com/movies:" + movieId, {
+    fetch(baseUrl + movieId, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: {
