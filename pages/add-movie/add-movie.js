@@ -69,6 +69,7 @@ doneButton.addEventListener("click", addMovie);
 
 
 //HEADER
+
 //go to Home page
 displayHome()
 function displayHome() {
@@ -90,11 +91,8 @@ function displayLogin() {
 
 setPointer();
 function setPointer() {
-    document.getElementById("menuButton").style.cursor = "pointer";
-    document.getElementById("menuIcon").style.cursor = "pointer";
-    document.getElementById("categoriesMenuContainer").style.cursor = "pointer";
+
     document.getElementById("home").style.cursor = "pointer";
     document.getElementById("login").style.cursor = "pointer";
-    document.getElementById("searchBar").style.cursor = "pointer";
     document.getElementById("done-button").style.cursor = "pointer";
 }

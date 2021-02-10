@@ -16,6 +16,23 @@ let posterInput = document.getElementById("posterInput");
 let movieId = location.search.substring(4);
 
 
+var data = {
+    Title: titleInput.value,
+    Year: yearInput.value,
+    Rating: ratingInput.value,
+    Date: dateInput.value,
+    Time: timeInput.value,
+    Genre: genreInput.value,
+    Director: directorInput.value,
+    Writer: writerInput.value,
+    Actors: actorsInput.value,
+    Plot: plotInput.value,
+    Language: languageInput.value,
+    Country: countryInput.value,
+    Poster: posterInput.value,
+};
+
+
 //go to home page
 function goToHome() {
     window.location.href = "/pages/home/home.html";
@@ -23,23 +40,6 @@ function goToHome() {
 
 
 const getInputs = () => {
-
-    var data = {
-        Title: titleInput.value,
-        Year: yearInput.value,
-        Rating: ratingInput.value,
-        Date: dateInput.value,
-        Time: timeInput.value,
-        Genre: genreInput.value,
-        Director: directorInput.value,
-        Writer: writerInput.value,
-        Actors: actorsInput.value,
-        Plot: plotInput.value,
-        Language: languageInput.value,
-        Country: countryInput.value,
-        Poster: posterInput.value,
-    };
-
 
     fetch(baseUrl + movieId, {
         method: "GET",
@@ -61,8 +61,6 @@ const getInputs = () => {
             languageInput.value = json.Language;
             countryInput.value = json.Country;
             posterInput.value = json.Poster;
-
-
 
         })
         .catch((err) => console.log(err))
@@ -99,10 +97,6 @@ doneButton.addEventListener("click", editMovie);
 
 
 
-
-
-
-
 //HEADER
 //go to Home page
 displayHome()
@@ -124,11 +118,8 @@ function displayLogin() {
 
 setPointer();
 function setPointer() {
-    document.getElementById("menuButton").style.cursor = "pointer";
-    document.getElementById("menuIcon").style.cursor = "pointer";
-    document.getElementById("categoriesMenuContainer").style.cursor = "pointer";
+
     document.getElementById("home").style.cursor = "pointer";
     document.getElementById("login").style.cursor = "pointer";
-    document.getElementById("searchBar").style.cursor = "pointer";
     document.getElementById("done-button").style.cursor = "pointer";
 } 
