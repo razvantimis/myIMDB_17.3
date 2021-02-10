@@ -12,6 +12,7 @@ const imdbVotes = document.querySelector("#imdbVotes")
 const deleteButton = document.querySelector("#delete")
 const addButton = document.querySelector("#add")
 const editButton = document.querySelector("#edit")
+const homeButton = document.querySelector("#home")
 
 
 
@@ -77,7 +78,7 @@ displayHome()
 function displayHome() {
     let homeButton = document.getElementById('home');
     homeButton.addEventListener('click', () => {
-        window.location.href = '/pages/home/home.html';
+      window.location = "./../home/home.html"
     })
 }
 
