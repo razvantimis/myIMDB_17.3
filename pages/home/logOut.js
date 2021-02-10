@@ -8,7 +8,7 @@ function createLogOutButton(){
     const buttons = document.getElementById("buttonContainer");
 
     if (localStorage.getItem("token")){
-      
+      document.getElementById('userName').style.display = 'none'
       var logOutBtn = document.createElement("button");
       logOutBtn.classList.add("headerButtons");
       logOutBtn.setAttribute("id","logOutButton");
