@@ -48,7 +48,6 @@ const getInputs = () => {
         .then((json) => {
             console.log(json);
             titleInput.value = json.Title;
-            console.log(json.Title);
             yearInput.value = json.Year;
             ratingInput.value = json.Rating;
             dateInput.value = json.Date;
@@ -61,7 +60,6 @@ const getInputs = () => {
             languageInput.value = json.Language;
             countryInput.value = json.Country;
             posterInput.value = json.Poster;
-            console.log(json);
 
         })
         .catch((err) => console.log(err))
@@ -108,9 +106,19 @@ function displayHome() {
     })
 }
 
+//go to Login page
+displayLogin()
+function displayLogin() {
+    let homeButton = document.getElementById('userIcon');
+    homeButton.addEventListener('click', () => {
+        window.location.href = '/pages/login_register/login_register.html';
+    })
+}
+
 setPointer();
 function setPointer() {
 
     document.getElementById("home").style.cursor = "pointer";
+    document.getElementById("userIcon").style.cursor = "pointer";
     document.getElementById("done-button").style.cursor = "pointer";
 } 
