@@ -86,13 +86,6 @@ hr {
 
 
 
-  /* #container2 {
-      padding-left: 50px;
-      background-color: #FFDE7D;
-  }
-
-
-        */
 #container{
     display: flex;
     justify-content: space-around;
@@ -160,4 +153,16 @@ hr {
 
 .rating {
     font-family: Voltaire;
+}
+
+#delete {
+   background-color: grey;
+   color: black;
+   border-color:grey;
+   border-radius: 5px;
+   
+}
+
+.deleteBtn {
+    padding-left: 10px;
 }
