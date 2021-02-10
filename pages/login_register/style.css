@@ -153,6 +153,7 @@ header {
   padding: 42px;
   text-align: center;
 }
+
 .form p {
   display: flex;
   font-family: "Voltaire", sans-serif;
@@ -160,6 +161,7 @@ header {
   font-size: 36px;
   margin-bottom: 5px;
 }
+
 .form input {
   color: black;
   font-family: "Voltaire", sans-serif;
@@ -207,7 +209,7 @@ header {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
- 
+
 }
 
 .sign-in p {
@@ -256,17 +258,16 @@ a:-webkit-any-link {
   display: flex;
   flex-direction: column;
   float: right;
-
-  padding-top: 5%;
   padding-bottom: 10%;
   align-items: center;
-  
+
 }
 
 .create-new-account-container p {
   color: black;
   align-self: inherit;
 }
+
 .create-new-account-container input {
   width: 413px;
   height: 53.16px;
@@ -297,19 +298,49 @@ a:-webkit-any-link {
   position: absolute;
   top: 117px;
   text-align: center;
-  font-size:30px;
-  color:red;
+  font-size: 30px;
+  color: red;
   width: 100%;
 
 }
 
-.sign-in{
-  display:flex;
+.sign-in {
+  display: flex;
   height: 100vh;
   width: 100%;
   align-items: center;
   padding-top: 10%;
   padding-bottom: 200px;
   justify-content: space-evenly;
-  
+
+}
+
+.logOutButton{
+  background-color: transparent;
+    font-family: 'Voltaire';
+    position: absolute;
+    top: 24px;
+    right: 80px;
+    font-size: 20px;
+    color: rgb(255, 222, 125);
+    border: none;
+}
+
+.headerButtons{
+  border: none;
+    position: absolute;
+    top: 24px;
+    right: 80px;
+    background-color: transparent;
+    color: rgb(255, 222, 125);
+    font-family: 'Voltaire';
+    font-size: 20px;
+}
+
+.display-none{
+display:none;
+}
+
+.display{
+display:flex;
 }

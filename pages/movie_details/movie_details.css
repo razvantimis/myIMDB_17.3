@@ -1,0 +1,168 @@
+body {
+    background-color: rgb(58,58,58);
+    display: flex;
+    flex-direction: row; 
+}
+header {
+    background-color:rgb(44,44,44);
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left:0%;
+}
+
+#logoImage {
+    position: relative;
+    left: 1%;
+    height: 80px;
+    width: 50px;
+}
+
+#menuButton {
+    position: absolute;
+    font-size: 25px;
+    left: 10%;
+    top: 24.5%;
+    color: rgb(255,222,125);
+}
+
+#menuName {
+    font-family: Voltaire;
+    position: absolute;
+    font-size: 20px;
+    left: 12%;
+    top: 24%;
+    color: rgb(255,222,125);
+}
+
+#home {
+    font-family: Voltaire;
+    position: absolute;
+    font-size: 20px;
+    top: 24%;
+    left: 20%;
+    color: rgb(255,222,125);
+}
+
+#userIcon {
+    position: absolute;
+    font-size: 30px;
+    top: 22%;
+    right: 3%;
+    color: rgb(255,222,125);
+}
+
+#searchIcon {
+    position: absolute;
+    font-size: 27px;
+    top: 22%;
+    right: 35%;
+    padding-right: 2%;
+    color: rgb(255,222,125);
+}
+
+#searchBar {
+    font-family: Voltaire;
+    position: absolute;
+    border-radius: 8px;
+    top: 22%;
+    right: 21%;
+    height: 28px;
+    width: 190px;
+    background-color:rgb(255,222,125);
+}
+
+hr {
+    border-width: 7px;
+    border: solid rgb(255,222,125);
+    position: absolute;
+    width: 100%;
+    top:12%;
+    left:0%;
+} 
+ 
+
+
+
+
+
+#container{
+    display: flex;
+    justify-content: space-around;
+   padding-top: 80px;
+    width: 100%;
+    
+}
+
+#container1 {
+    
+    border-right:5px solid  rgb(58,58,58);
+    background-color: #FFDE7D;
+    width: 30%;
+    
+}
+
+#container2 {
+    display: flex;
+    flex-direction: column;
+ 
+    background-color:#FFDE7D;
+    width: 70%;
+}
+
+#moviePoster { 
+    width: 100%;
+    height:80%;
+
+}
+
+#rating {
+    display: flex;
+}
+
+#star { 
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.element { 
+    display: flex;
+    flex-direction: row;
+}
+
+.sElement { 
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-family: Voltaire;
+
+}
+
+#movieTitle {
+    font-family: Voltaire;
+}
+
+.rating {
+    font-family: Voltaire;
+}
+
+#delete {
+   background-color: grey;
+   color: black;
+   border-color:grey;
+   border-radius: 5px;
+   
+}
+
+.deleteBtn {
+    padding-left: 10px;
+}

@@ -70,7 +70,6 @@ doneButton.addEventListener("click", addMovie);
 
 //HEADER
 
-
 //go to Home page
 displayHome()
 function displayHome() {
