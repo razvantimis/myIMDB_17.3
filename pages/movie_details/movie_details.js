@@ -11,6 +11,8 @@ const imdbRating = document.querySelector("#imdbRating")
 const imdbVotes = document.querySelector("#imdbVotes")
 const deleteButton = document.querySelector("#delete")
 const addButton = document.querySelector("#add")
+const editButton = document.querySelector("#edit")
+
 
 
 
@@ -44,6 +46,10 @@ deleteButton.addEventListener("click", deleteMovie)
 addButton.addEventListener("click", () => {
   window.location = "./../add-movie/add-movie.html"
 })
+editButton.addEventListener("click", () => {
+  window.location = "./../edit-movie/edit-movie.html"
+})
+
 
 
 const getMovies = () => {

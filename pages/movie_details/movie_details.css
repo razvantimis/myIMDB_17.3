@@ -180,3 +180,12 @@ hr {
 .btn {
     display: flex;
 }
+#edit {
+    background-color: grey;
+    color: black;
+    border-color:grey;
+    border-radius: 5px;
+    font-family: Voltaire;
+
+
+}
