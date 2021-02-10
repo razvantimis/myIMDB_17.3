@@ -1,0 +1,162 @@
+body{
+    background-color: #6B6868;
+}
+
+#title{
+    color: #FFDE7D;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(58,58,58);
+}
+
+/* Header */
+header {
+    background-color:rgb(44,44,44);
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left:0%;
+}
+
+#logoImage {
+    position: relative;
+    left: 1%;
+    height: 80px;
+    width: 50px;
+}
+
+#menuIcon {
+    position: absolute;
+    font-size: 25px;
+    left: 10%;
+    top: 24.5%;
+    color: rgb(255,222,125);
+}
+
+#menuContainer {
+    font-family: 'Voltaire', sans-serif;
+    position:absolute;
+    width: 150px;
+    height: 150px;
+    background-color:rgb(44,44,44);
+    top: 55%;
+    left: 8%;
+    z-index: 4;
+    display: none;
+    color:rgb(255,222,125) ;
+}
+
+#titleMenuContainer {
+    position:absolute;
+    left: 10%;
+}
+
+#categoriesMenuContainer {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+#menuName {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    left: 12%;
+    top: 24%;
+    color: rgb(255,222,125);
+}
+
+#home {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    top: 24%;
+    left: 20%;
+    color: rgb(255,222,125);
+}
+
+#login {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    top: 24%;
+    left: 28%;
+    color: rgb(255,222,125);
+}
+
+#userIcon {
+    position: absolute;
+    font-size: 30px;
+    top: 22%;
+    right: 3%;
+    color: rgb(255,222,125);
+}
+
+#searchIcon {
+    position: absolute;
+    font-size: 27px;
+    top: 22%;
+    right: 35%;
+    color: rgb(255,222,125);
+}
+
+#searchBar {
+    font-family: 'Voltaire', sans-serif;
+    position: absolute;
+    border-radius: 8px;
+    top: 22%;
+    right: 21%;
+    height: 28px;
+    width: 190px;
+    background-color:rgb(255,222,125);
+   font-size: 25px;
+}
+
+#lineBelowHeader {
+    border-width: 7px;
+    border: solid rgb(255,222,125);
+    position: absolute;
+    width: 100%;
+    top:-5%;
+    left:0%;
+}
+
+/* Content */
+#content{
+    margin-top:10%;
+    text-align: center;
+    font-size: 40px;
+}
+
+main {
+    position: relative;
+    top: 80px;
+} 
+
+label {
+    color:#FFDE7D;
+
+}
+
+input{
+    background-color: #FFDE7D;
+    border-style: none;
+    border-radius: 20px;
+     margin: 3px;
+     font-size: 40px;
+}
+
+
+#done-button{
+    font-size: 40px;
+}
+
+select{
+    font-size: 40px;
+} 
