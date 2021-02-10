@@ -16,7 +16,7 @@ let posterInput = document.getElementById("posterInput");
 
 //go to home page
 function goToHome() {
-    window.location.href = "/Pages/home/home.html";
+    window.location.href = "/pages/home/home.html";
 }
 
 

@@ -17,7 +17,7 @@ let posterInput = document.getElementById("posterInput");
 
 //go to home page
 function goToHome() {
-    window.location.href = "/Pages/home/home.html";
+    window.location.href = "/pages/home/home.html";
 }
 
 
@@ -64,7 +64,7 @@ const editMovie = () => {
 
 
     fetch("https://movies-app-siit.herokuapp.com/movies/:id", {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(data),
         headers: {
             "X-Auth-Token": loginToken,
