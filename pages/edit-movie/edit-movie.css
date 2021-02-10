@@ -23,6 +23,15 @@ header {
     top: 0%;
     left:0%;
 }
+hr {
+    border-width: 7px;
+    border: solid rgb(255,222,125);
+    position: absolute;
+    width: 100%;
+    top:90%;
+    left:0%;
+} 
+ 
 
 #logoImage {
     position: relative;
@@ -58,14 +67,6 @@ header {
     color: rgb(255,222,125);
 }
 
-#lineBelowHeader {
-    border-width: 7px;
-    border: solid rgb(255,222,125);
-    position: absolute;
-    width: 100%;
-    top:-5%;
-    left:0%;
-}
 
 
 /* Content */
@@ -101,4 +102,4 @@ input{
 
 select{
     font-size: 40px;
-
+}
