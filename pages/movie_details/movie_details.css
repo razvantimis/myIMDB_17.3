@@ -160,9 +160,23 @@ hr {
    color: black;
    border-color:grey;
    border-radius: 5px;
+   font-family: Voltaire;
    
 }
 
 .deleteBtn {
     padding-left: 10px;
+}
+
+#add {
+    background-color: grey;
+    color: black;
+    border-color:grey;
+    border-radius: 5px;
+    font-family: Voltaire;
+
+}
+
+.btn {
+    display: flex;
 }
