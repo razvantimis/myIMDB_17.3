@@ -41,15 +41,6 @@ header {
     color: rgb(255,222,125);
 }
 
-#login {
-    font-family: 'Voltaire', sans-serif;
-    position: absolute;
-    font-size: 20px;
-    top: 24%;
-    left: 28%;
-    color: rgb(255,222,125);
-}
-
 #userIcon {
     position: absolute;
     font-size: 30px;

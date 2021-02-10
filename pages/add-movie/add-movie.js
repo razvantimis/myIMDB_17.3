@@ -79,20 +79,9 @@ function displayHome() {
     })
 }
 
-//go to Login page
-displayLogin()
-function displayLogin() {
-    let loginButton = document.getElementById('login');
-    loginButton.addEventListener('click', () => {
-        window.location.href = '/Pages/login_register/login_register.html';
-    })
-}
-
-
 setPointer();
 function setPointer() {
 
     document.getElementById("home").style.cursor = "pointer";
-    document.getElementById("login").style.cursor = "pointer";
     document.getElementById("done-button").style.cursor = "pointer";
 }
