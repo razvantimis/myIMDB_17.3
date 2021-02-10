@@ -2,9 +2,6 @@ baseUrl = "https://movies-app-siit.herokuapp.com/movies/";
 
 let titleInput = document.getElementById("titleInput");
 let yearInput = document.getElementById("yearInput");
-let ratingInput = document.getElementById("ratingInput");
-let dateInput = document.getElementById("dateInput");
-let timeInput = document.getElementById("runtimeInput");
 let genreInput = document.getElementById("genreInput");
 let directorInput = document.getElementById("directorInput");
 let writerInput = document.getElementById("writerInput");
@@ -20,9 +17,6 @@ const movieId = location.search.substring(4);
 var data = {
     Title: titleInput.value,
     Year: yearInput.value,
-    Rating: ratingInput.value,
-    Date: dateInput.value,
-    Time: timeInput.value,
     Genre: genreInput.value,
     Director: directorInput.value,
     Writer: writerInput.value,
@@ -50,9 +44,6 @@ const getInputs = () => {
             console.log(json);
             titleInput.value = json.Title;
             yearInput.value = json.Year;
-            ratingInput.value = json.Rating;
-            dateInput.value = json.Date;
-            timeInput.value = json.Time;
             genreInput.value = json.Genre;
             directorInput.value = json.Director;
             writerInput.value = json.Writer;
@@ -73,7 +64,7 @@ const editMovie = () => {
 
     let loginToken = localStorage.getItem("token");
 
-    fetch("https://movies-app-siit.herokuapp.com/movies" + movieId, {
+    fetch("https://movies-app-siit.herokuapp.com/movies:" + movieId, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: {
