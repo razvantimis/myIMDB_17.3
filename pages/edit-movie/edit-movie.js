@@ -47,7 +47,6 @@ const getInputs = () => {
         .then((response) => response.json())
         .then((json) => {
             console.log(json);
-            const movie = json;
             titleInput.value = json.Title;
             yearInput.value = json.Year;
             ratingInput.value = json.Rating;
@@ -110,9 +109,9 @@ function displayHome() {
 //go to Login page
 displayLogin()
 function displayLogin() {
-    let loginButton = document.getElementById('login');
-    loginButton.addEventListener('click', () => {
-        window.location.href = '/Pages/login_register/login_register.html';
+    let homeButton = document.getElementById('userIcon');
+    homeButton.addEventListener('click', () => {
+        window.location.href = '/pages/login_register/login_register.html';
     })
 }
 
@@ -120,6 +119,6 @@ setPointer();
 function setPointer() {
 
     document.getElementById("home").style.cursor = "pointer";
-    document.getElementById("login").style.cursor = "pointer";
+    document.getElementById("userIcon").style.cursor = "pointer";
     document.getElementById("done-button").style.cursor = "pointer";
 } 
