@@ -1,4 +1,4 @@
-baseUrl = "https://movies-app-siit.herokuapp.com/movies";
+baseUrl = "https://movies-app-siit.herokuapp.com/movies/";
 
 let titleInput = document.getElementById("titleInput");
 let yearInput = document.getElementById("yearInput");
